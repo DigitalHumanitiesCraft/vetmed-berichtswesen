@@ -1,6 +1,6 @@
 # Qualitaetsbericht Konsolidierung
 
-Generiert: 13.02.2026 22:45
+Generiert: 14.02.2026 08:27
 
 Verarbeitete PSBs: 5
 
@@ -29,6 +29,8 @@ Verarbeitete PSBs: 5
 ### LV-2024-003: IT-Sicherheitskonzept
 
 - Kein Projektauftrag vorhanden
+- Indikator 'Anteil umgesetzter Massnahmen': Zielwert 2024 verfehlt (-37.5%)
+- Indikator 'Anzahl Sicherheitsaudits': Istwert 2024 fehlt
 
 ### LV-2024-004: Nachhaltigkeitsstrategie Campus
 

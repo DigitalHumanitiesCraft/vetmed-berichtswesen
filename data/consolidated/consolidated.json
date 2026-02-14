@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generiert": "2026-02-13T22:45:17.980564",
+    "generiert": "2026-02-14T08:27:03.757192",
     "anzahl_projekte": 5,
     "quelldateien": [
       "PSB_LV-2023-005.xlsx",
@@ -185,7 +185,26 @@
       "projektauftrag": "nein",
       "berichtszeitraum": "Q4/2024",
       "ampel": "rot",
-      "indikatoren": [],
+      "indikatoren": [
+        {
+          "name": "Anteil umgesetzter Massnahmen",
+          "einheit": "%",
+          "zielwert_2024": 40,
+          "istwert_2024": 25,
+          "zielwert_2025": 100,
+          "istwert_2025": null,
+          "zielwert_2026": null
+        },
+        {
+          "name": "Anzahl Sicherheitsaudits",
+          "einheit": "Stueck",
+          "zielwert_2024": 2,
+          "istwert_2024": null,
+          "zielwert_2025": 4,
+          "istwert_2025": null,
+          "zielwert_2026": null
+        }
+      ],
       "massnahmen": [
         {
           "name": "Gap-Analyse",
@@ -206,7 +225,9 @@
       "kommentar": "Erhebliche Verzoegerung wegen Personalengpass in der IT-Abteilung. Externer Dienstleister wird evaluiert. Projektauftrag liegt noch nicht vor.",
       "kurzbeschreibung": "Entwicklung und Implementierung eines umfassenden IT-Sicherheitskonzepts gemaess NIS2-Richtlinie.",
       "warnungen": [
-        "Kein Projektauftrag vorhanden"
+        "Kein Projektauftrag vorhanden",
+        "Indikator 'Anteil umgesetzter Massnahmen': Zielwert 2024 verfehlt (-37.5%)",
+        "Indikator 'Anzahl Sicherheitsaudits': Istwert 2024 fehlt"
       ],
       "budget_verbrauch_pct": 69.6
     },

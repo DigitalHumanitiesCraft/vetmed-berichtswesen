@@ -94,7 +94,7 @@ def parse_psb(filepath):
         row = ind_start
         while row < ind_start + 10:
             name = ws[f"A{row}"].value
-            if not name or "Massnahme" in str(name):
+            if not name or ("Massnahme" in str(name) and ws[f"B{row}"].value == "Status"):
                 break
             indikator = {
                 "name": name,
