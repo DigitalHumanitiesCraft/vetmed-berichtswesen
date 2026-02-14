@@ -109,19 +109,28 @@ Schema-Validierung fuer DataFrames. Lightweight Alternative zu Great Expectation
 
 | Format | Zweck | Anmerkung |
 |--------|-------|-----------|
-| JSON | Menschliche Inspektion | Vollstaendig strukturiert, leicht lesbar |
-| SQLite | Primaerer Speicher | Abfragbar, transaktional, einzelne Datei |
+| JSON | Dashboard-Datenquelle + menschliche Inspektion | Vollstaendig strukturiert, vom Dashboard via fetch() gelesen |
+| SQLite | Primaerer Speicher (optional) | Abfragbar, transaktional, einzelne Datei. Aktuell nicht genutzt |
 | CSV | Excel-Kompatibilitaet | Semikolon-Trenner fuer deutschsprachiges Umfeld |
-| Parquet | Dashboard-Anbindung | Fuer spaetere Visualisierungen (Stufe 3) |
+
+## Implementiert im Dashboard (Stufe 3)
+
+Die folgenden Auswertungen sind im Dashboard (docs/) umgesetzt:
+
+- **Ampel-Uebersicht:** KPI-Leiste und Ampel-Grid mit Projektkarten
+- **Budget-Uebersicht:** Horizontales Balkendiagramm + Tabelle mit Summenzeile, Verbrauch in % pro Projekt
+- **Uebersicht nach Kapitel:** Pie-Chart in den Verteilungs-Charts, Filter nach Kapitel
+- **Zielwert/Istwert-Vergleich:** Gruppierte Balkendiagramme pro Projekt (2024)
+- **Massnahmenstatus-Verteilung:** Donut-Chart (geplant/in Umsetzung/abgeschlossen/verzoegert)
+- **Detail-Modal:** Vollansicht pro Projekt (Indikatoren, Massnahmen, Warnungen, Kommentar)
 
 ## Noch nicht implementiert
 
-Die folgenden Auswertungen aus der bestehenden konsolidierten Excel sind noch nicht abgebildet:
-
 - **Zeitleiste/Gantt:** Visuelle Darstellung der Projektlaufzeiten und Fortschrittsgrade
-- **Uebersicht nach Kapitel:** Aggregierte Sicht pro [Kapitel](rechtlicher-rahmen.md)
 - **Budgeteinbehalt-Berechnung:** Detaillogik noch unklar, muss mit Forster geklaert werden
-- **LV-Monitoring-Export:** Jaehrlicher Ampelstatus mit Erklaerungen fuer das Ministerium
+- **LV-Monitoring-Export:** Jaehrlicher Ampelstatus mit Erklaerungen fuer das Ministerium (Epic 4)
+- **PNG/PDF-Export:** Ampel-Uebersicht als Bild fuer Praesentationen (Epic 4, E4-S1)
+- **Quartalsbericht-Export:** Aggregierter PDF-Bericht (Epic 4, E4-S2)
 
 ## Verwandte Dokumente
 

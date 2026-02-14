@@ -14,7 +14,7 @@ Datenintegration, nicht Visualisierung. Der bestehende manuelle Prozess funktion
 
 1. **Erfassung** – PSB-Excel-Vorlagen werden ausgefuellt (data/templates/)
 2. **Konsolidierung** – Einzelne PSBs werden zusammengefuehrt (scripts/consolidate.py). Enthaelt bewusst eine manuelle Ueberpruefungsphase via quality_report.md
-3. **Dashboard** – Auswertungen visualisieren (noch nicht implementiert)
+3. **Dashboard** – Interaktives HTML/CSS/JS-Dashboard (docs/). Liest consolidated.json, visualisiert mit Chart.js. Start via `python start_dashboard.py`
 4. **Export** – Zielgruppenspezifische Ausgabeformate (noch nicht implementiert)
 
 ## Repository-Struktur
@@ -34,7 +34,12 @@ knowledge/
   validierung.md            Berechnungsregeln, Validierungsstrategie, Quality Report, Python-Stack
   journal.md                Arbeitstagebuch: Entscheidungen, Aenderungen, offene Punkte pro Session
   anforderungen.md          Epics, User Stories, Rollen, Roadmap, Forschungsgrundlage
-docs/                       GitHub Pages-Publikation (noch nicht implementiert)
+docs/
+  index.html               Dashboard HTML-Struktur (Stufe 3)
+  style.css                Design-System und Komponenten-Styles
+  app.js                   Dashboard-Applikationslogik (Daten, Filter, Charts, Modal)
+  consolidated.json        Kopie der Datenquelle (wird von start_dashboard.py aktualisiert)
+start_dashboard.py         Lokaler HTTP-Server: kopiert JSON nach docs/, startet auf Port 8080
 ```
 
 ## PSB-Datenstruktur
@@ -62,11 +67,13 @@ Das Konsolidierungsscript erkennt diese Faelle und meldet sie im quality_report.
 ## Konventionen
 
 - Python 3.11+, openpyxl fuer Excel-Verarbeitung
+- Dashboard: HTML/CSS/JS, Chart.js via CDN (einzige externe Abhaengigkeit)
 - Encoding: UTF-8
 - CSV-Trenner: Semikolon (deutschsprachiges Umfeld)
 - Datumsformat: DD.MM.YYYY
 - Berichtszeitraum: Qn/YYYY
 - Ampelwerte: gruen, gelb, rot (lowercase)
+- Zahlenformat Dashboard: Intl.NumberFormat('de-AT') fuer EUR und Prozent
 
 ## Wissensdokumente (knowledge/)
 

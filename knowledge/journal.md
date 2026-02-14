@@ -84,3 +84,139 @@ Arbeitstagebuch des Projekts vetmed-berichtswesen. Dokumentiert Entscheidungen u
 ### Offen
 
 - Unveraendert gegenueber Session 1 (Workshop 04.03. steht noch aus)
+
+---
+
+## 2026-02-14 (Session 3) – Dashboard-Implementierung (Stufe 3)
+
+**Teilnehmer:** Christopher Pollin, Claude (KI-Assistent)
+
+### Entscheidungen
+
+1. **HTML/CSS/JS statt Streamlit**: Dashboard als statische Webanwendung, kein Python-Framework. Begruendung: Zero Dependencies (ausser Chart.js CDN), einfache Verteilung, kein Python-Server im Dauerbetrieb noetig.
+2. **Chart.js via CDN**: Einzige externe Abhaengigkeit. Balkendiagramme (Budget, Soll/Ist), Donut-Charts (Ampel, Massnahmen), Pie-Chart (Kapitel).
+3. **Getrennte Dateien**: index.html + style.css + app.js statt Single-File. Erfordert lokalen HTTP-Server (start_dashboard.py), ermoeglicht aber saubere Trennung.
+4. **Alle 5 User Stories**: E3-S1 bis E3-S5 komplett implementiert. Kein stufenweiser Rollout.
+5. **Design**: Sachlich-professionell. Weiss/Grau-Basis, Ampelfarben als Akzente, CSS Custom Properties fuer konsistentes Design-System.
+6. **consolidated.json als Datenquelle**: Dashboard liest direkt die JSON-Ausgabe der Konsolidierung. start_dashboard.py kopiert die aktuelle Version automatisch.
+
+### Aenderungen
+
+| Datei | Aenderung |
+|-------|-----------|
+| docs/index.html | Neu: Semantische HTML-Struktur mit Header, KPI-Leiste, Filter, Ampel-Grid, Budget, Soll/Ist, Verteilungen, Modal, Footer |
+| docs/style.css | Neu: Design-System (CSS Custom Properties), Komponenten-Styles, responsive Breakpoints |
+| docs/app.js | Neu: Daten laden, KPI-Rendering, Filter-Logik, Ampel-Grid, Budget-Chart+Tabelle, Soll/Ist-Charts, Verteilungs-Charts, Detail-Modal |
+| start_dashboard.py | Neu: Lokaler HTTP-Server (Port 8080), kopiert consolidated.json, oeffnet Browser |
+| knowledge/anforderungen.md | E3-S1 bis E3-S5 Status auf Done, Roadmap aktualisiert |
+| knowledge/journal.md | Dieser Eintrag |
+
+### Dashboard-Features
+
+- **KPI-Leiste**: 7 Karten (Projektanzahl, Ampel-Zaehler, Budget, Warnungen)
+- **Sticky-Filter**: Kapitel, Auftraggeber, Ampelstatus mit reaktivem Re-Rendering
+- **Ampel-Grid**: Projektkarten mit Ampelpunkt, Budget-Balken, Warnungsanzeige
+- **Budget-Uebersicht**: Horizontales Balkendiagramm + Tabelle mit Summenzeile
+- **Soll/Ist-Vergleich**: Gruppierte Balken pro Projekt, farbcodiert (gruen/rot/grau)
+- **Verteilungen**: 3 Donut/Pie-Charts (Ampel, Kapitel, Massnahmenstatus)
+- **Detail-Modal**: Vollstaendige Projektansicht mit Indikatoren, Massnahmen, Warnungen
+
+### Offen
+
+- Kapitel-Zuordnung: A-D vs. Lehre/Forschung/Infrastruktur (Workshop 04.03.)
+- Epic 4 (Export): PNG/PDF-Export, Quartalsberichte, LV-Einzelberichte
+- pandera-Schema fuer automatisierte Validierung
+
+---
+
+## 2026-02-14 (Session 4) – Dashboard-Refactoring und Knowledge-Update
+
+**Teilnehmer:** Christopher Pollin, Claude (KI-Assistent)
+
+### Entscheidungen
+
+1. **Knowledge-Dokumente aktualisiert**: CLAUDE.md, projektkontext.md, validierung.md, datenmodell.md auf aktuellen Stand gebracht (Dashboard als implementiert, docs/-Struktur, start_dashboard.py).
+2. **Kein Over-Engineering**: Refactoring bleibt konservativ — keine Datei-Aufteilung, keine ES-Module, kein Build-Tool. Promptotype-Prinzip.
+3. **CSS als Single Source of Truth fuer Farben**: 4 neue CSS Custom Properties (--color-budget-spent, --color-neutral, --color-kapitel-infrastruktur, --color-chart-grid). getCSSColor()-Helper liest Werte fuer Chart.js.
+4. **CHART_DEFAULTS + createChart()**: Gemeinsame Chart.js-Konfiguration extrahiert, aber Chart-Konfigurationen bleiben explizit (keine createBarChart()-Abstraktion).
+5. **JSDoc fuer alle Funktionen**: 21 Funktionen mit @param/@returns dokumentiert. formatValue()-Heuristik explizit erklaert.
+
+### Aenderungen
+
+| Datei | Aenderung |
+|-------|-----------|
+| docs/style.css | Datei-Header mit Sektionsverzeichnis, 4 neue CSS Custom Properties, Badge-Sektion nummeriert (10), !important-Kommentar, 14 Sektionen |
+| docs/app.js | Datei-Header mit Architektur/Datenfluss, Sektionsnummern korrigiert (15 statt 14, doppelte "3" aufgeloest), getCSSColor()-Helper, CHART_DEFAULTS + initChartDefaults() + createChart(), 12 inline Hex-Farben durch Konstanten ersetzt, JSDoc fuer alle 21 Funktionen |
+| docs/index.html | Kommentarblock mit Datei-Beziehungen und Start-Anleitung |
+| CLAUDE.md | Dashboard als implementiert, docs/-Struktur mit Dateien, start_dashboard.py, Dashboard-Konventionen |
+| knowledge/projektkontext.md | Stufe 3 implementiert, Kann-Anforderung Dashboard entschieden, Offener Punkt 1 entschieden, anforderungen.md in Verwandte Dokumente |
+| knowledge/validierung.md | Parquet entfernt, JSON als Dashboard-Datenquelle, neuer Abschnitt "Implementiert im Dashboard", Epic-4-Punkte in "Noch nicht implementiert" |
+| knowledge/datenmodell.md | Neuer Abschnitt "Dashboard-Datenfluss" mit berechneten Feldern |
+| knowledge/journal.md | Dieser Eintrag |
+
+### Refactoring-Kennzahlen
+
+| Metrik | Vorher | Nachher |
+|--------|--------|---------|
+| app.js Zeilen | 813 | ~1000 (JSDoc +~120, Helper +~40, Kommentare +~30) |
+| app.js Sektionen | 14 (mit Luecke) | 15 (sequentiell) |
+| style.css Sektionen | 13 (Badge ohne Nummer) | 14 (alle nummeriert) |
+| Hardcodierte Hex-Farben in JS | 26 | ~14 (nur Konstanten + Error-Fallback) |
+| JSDoc-dokumentierte Funktionen | 0 | 21 |
+| CSS Custom Properties | 27 | 31 |
+
+### Offen
+
+- Unveraendert gegenueber Session 3 (Workshop 04.03. steht noch aus)
+
+---
+
+## 2026-02-14 (Session 5) – UI/UX-Verbesserungen
+
+**Teilnehmer:** Christopher Pollin, Claude (KI-Assistent)
+
+### Kontext
+
+Design-Review des Dashboards aus der Perspektive eines UI/UX-Experten. 10 Kritikpunkte identifiziert und alle 8 umsetzbaren Punkte implementiert.
+
+### Entscheidungen
+
+1. **Gelb-Kontrast (Accessibility)**: Neuer Token `--ampel-gelb-text: #8a6d00` fuer Textelemente. WCAG AA-konform (Kontrastverhaeltnis >4.5:1 auf Weiss). Gelbe Ampelfarbe (`#ffc107`) bleibt fuer Punkte/Balken, nur Text-Darstellung geaendert.
+2. **KPI-Leiste verdichtet**: 7 Karten → 5 Karten. Ampel-Zaehler (Gruen/Gelb/Rot) in eine kompakte `ampel-summary`-Komponente zusammengefasst mit Farbpunkten und Zahlen nebeneinander.
+3. **Typographische Hierarchie**: Header-Titel `1.25rem → 1.5rem` (font-weight 700), Section-Titles `1.125rem → 1.25rem` (font-weight 700), KPI-Labels `0.75rem uppercase → 0.875rem` normal.
+4. **Grid-Layout**: `minmax(300px, 1fr) → minmax(300px, 350px)` — Karten wachsen nicht mehr auf volle Breite.
+5. **Budget-Balken**: `8px → 12px` Hoehe, `border-radius: 4px → 6px`.
+6. **Loading-State**: CSS-Spinner-Overlay das beim Start angezeigt und nach Laden ausgeblendet wird (300ms Fade-Out).
+7. **Filter-Reset bedingt**: Button per CSS (`opacity: 0, pointer-events: none`) unsichtbar, wird via JS-Klasse `is-visible` eingeblendet wenn Filter aktiv.
+8. **Testdaten-Banner**: Prominenter gelber Banner direkt unter dem Header statt unauffaellig im Footer.
+
+### Aenderungen
+
+| Datei | Aenderung |
+|-------|-----------|
+| docs/style.css | `--ampel-gelb-text` Token, Ampel-Summary-Styles, Test-Banner, Loading-Overlay mit Spinner-Animation, KPI-Grid 7→5 Spalten, Typographie-Updates, Budget-Balken 12px, Filter-Reset bedingt sichtbar, Footer zentriert |
+| docs/app.js | `AMPEL_COLORS.gelb.text` hinzugefuegt, Loading-Overlay nach Laden entfernen, Filter-Reset `is-visible` Toggle in `applyFilters()` und Reset-Handler |
+| docs/index.html | Testdaten-Banner, Loading-Overlay, KPI-Leiste mit `ampel-summary`-Komponente, Footer vereinfacht |
+| knowledge/journal.md | Dieser Eintrag |
+
+### UI-Verbesserungen (Vorher/Nachher)
+
+| Punkt | Vorher | Nachher |
+|-------|--------|---------|
+| KPI-Karten | 7 gleichwertige Karten | 5 Karten, Ampel als kompakte Einheit |
+| Gelb-Kontrast | #ffc107 auf Weiss (1.9:1) | #8a6d00 fuer Text (>4.5:1) |
+| Header-Titel | 1.25rem, weight 600 | 1.5rem, weight 700 |
+| Section-Titles | 1.125rem, weight 600 | 1.25rem, weight 700 |
+| Budget-Balken | 8px Hoehe | 12px Hoehe |
+| Grid-Karten | Wachsen auf volle Breite | Max 350px breit |
+| Loading | "--" Platzhalter | Spinner-Overlay |
+| Filter-Reset | Immer sichtbar | Nur bei aktiven Filtern |
+| Testdaten-Hinweis | Im Footer | Gelber Banner oben |
+
+### Offen
+
+- Kapitel-Zuordnung: A-D vs. Lehre/Forschung/Infrastruktur (Workshop 04.03.)
+- Verhaeltnis Quartalsbericht zu LV-Monitoring-Zyklus (Workshop 04.03.)
+- Epic 4 (Export): PNG/PDF-Export, Quartalsberichte, LV-Einzelberichte
+- pandera-Schema fuer automatisierte Validierung
+- Rolle der Wissensbilanz (WBV) im Workflow

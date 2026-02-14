@@ -64,9 +64,24 @@ Ende der Tabelle: leere Zeile oder Beginn des Kommentar-Blocks.
 
 Das Konsolidierungsscript erzeugt drei Dateien:
 
-- **consolidated.json** – Vollstaendige strukturierte Daten aller Projekte mit Metablock
+- **consolidated.json** – Vollstaendige strukturierte Daten aller Projekte mit Metablock. Datenquelle fuer das Dashboard.
 - **consolidated.csv** – Flache Uebersichtstabelle (Semikolon-getrennt)
 - **quality_report.md** – Auffaelligkeiten und Warnungen zur manuellen Pruefung
+
+## Dashboard-Datenfluss
+
+`data/consolidated/consolidated.json` → `start_dashboard.py` kopiert nach `docs/consolidated.json` → Dashboard liest via `fetch('consolidated.json')`.
+
+Die JSON-Struktur enthaelt einen `meta`-Block (Generierungszeitpunkt, Anzahl Projekte) und ein `projekte`-Array. Das Dashboard berechnet folgende abgeleitete Werte im Frontend:
+
+| Berechnetes Feld | Formel | Verwendung |
+|-----------------|--------|------------|
+| Budget-Verbrauch % | `budget_verbraucht / budget_gesamt * 100` | KPI-Karte, Budget-Tabelle, Fortschrittsbalken |
+| Gesamtbudget | `Summe(budget_gesamt)` | KPI-Karte, Budget-Tabelle Summenzeile |
+| Ampel-Zaehler | `Count je Ampelwert` | KPI-Karten, Ampel-Donut |
+| Warnungen gesamt | `Summe(warnungen.length)` | KPI-Karte |
+| Massnahmenstatus-Verteilung | `Count je Status ueber alle Projekte` | Massnahmen-Donut |
+| Zielwert-Erreichung | `istwert >= zielwert` | Farbcodierung Soll/Ist-Balken (gruen/rot/grau) |
 
 ## Verwandte Dokumente
 

@@ -18,10 +18,10 @@ Forschungsgrundlage: Die Anforderungen stuetzen sich auf externe Befunde aus 202
 ```
 Done                    Naechster Schritt           Spaeter
 ─────────────────────   ─────────────────────────   ──────────────────
-Epic 1 (Erfassung)      Epic 3 (Dashboard)          Epic 4 (Export)
-Epic 2 (Konsolidierung) ├─ E3-S1 Ampel-Uebersicht
-Epic 5 (Wissensbasis)   ├─ E3-S2 Filterung
-                        └─ E3-S3 Budget-Auswertung
+Epic 1 (Erfassung)      Epic 4 (Export)
+Epic 2 (Konsolidierung) ├─ E4-S1 PNG/PDF-Export
+Epic 3 (Dashboard)      ├─ E4-S2 Quartalsbericht
+Epic 5 (Wissensbasis)   └─ E4-S3 LV-Einzelberichte
 
                         Abhaengigkeit: Workshop 04.03.
                         (Kapitel-Dimension, LV-Monitoring)
@@ -61,17 +61,17 @@ TDWI Human-in-the-Loop-Forschung [5]: Das Propose-Validate-Pattern (System melde
 
 ## Epic 3: Dashboard (Stufe 3)
 
-*Status: Offen — naechster Implementierungsschritt*
+*Status: Implementiert (Promptotype)*
 
 | ID | User Story | Prioritaet | Status |
 |----|-----------|-------------|--------|
-| E3-S1 | Als RK will ich eine Ampel-Uebersicht aller Projekte auf einen Blick, damit ich den Gesamtstatus in <30 Sekunden erfassen kann. | Muss | Offen |
-| E3-S2 | Als RK will ich nach Kapitel/Auftraggeber/Ampel filtern, damit ich mich auf relevante Teilmengen konzentrieren kann. | Muss | Offen |
-| E3-S3 | Als FV will ich Budget-Auswertungen (Gesamtbudget, Verbrauch, Verbrauch%), damit ich finanzielle Risiken frueh erkenne. | Muss | Offen |
-| E3-S4 | Als FV will ich Zielwert-Ist-Vergleiche pro Indikator sehen, damit ich Zielerreichung bewerten kann. | Kann | Offen |
-| E3-S5 | Als RK will ich eine Detailansicht pro Projekt (Indikatoren, Massnahmen, Kommentar), damit ich bei Bedarf in die Tiefe gehen kann. | Kann | Offen |
+| E3-S1 | Als RK will ich eine Ampel-Uebersicht aller Projekte auf einen Blick, damit ich den Gesamtstatus in <30 Sekunden erfassen kann. | Muss | Done |
+| E3-S2 | Als RK will ich nach Kapitel/Auftraggeber/Ampel filtern, damit ich mich auf relevante Teilmengen konzentrieren kann. | Muss | Done |
+| E3-S3 | Als FV will ich Budget-Auswertungen (Gesamtbudget, Verbrauch, Verbrauch%), damit ich finanzielle Risiken frueh erkenne. | Muss | Done |
+| E3-S4 | Als FV will ich Zielwert-Ist-Vergleiche pro Indikator sehen, damit ich Zielerreichung bewerten kann. | Kann | Done |
+| E3-S5 | Als RK will ich eine Detailansicht pro Projekt (Indikatoren, Massnahmen, Kommentar), damit ich bei Bedarf in die Tiefe gehen kann. | Kann | Done |
 
-Streamlit ist fuer die Promptotyping-Phase die richtige Wahl (Kanaries [7]: schnellstes Prototyping). Datenquelle: consolidated.json aus Stufe 2. Kein eigenes Backend noetig — Streamlit liest direkt aus JSON, Filterung ueber Widgets.
+Implementiert als HTML/CSS/JS-Dashboard (docs/). Datenquelle: consolidated.json aus Stufe 2. Chart.js fuer Visualisierungen (Budget-Balken, Soll/Ist-Vergleich, Ampel-/Kapitel-/Massnahmen-Verteilungen). Start via `python start_dashboard.py` (lokaler HTTP-Server auf Port 8080).
 
 **Abhaengigkeit:** Klaerung Kapitel-Dimension (A-D vs. Lehre/Forschung/Infrastruktur) am 04.03. beeinflusst Filterdimensionen (E3-S2). Siehe [projektkontext.md](projektkontext.md).
 

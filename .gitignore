@@ -14,3 +14,6 @@ venv/
 
 # Claude Code (local settings)
 .claude/
+
+# Dashboard (generierte Kopie, wird von start_dashboard.py erzeugt)
+docs/consolidated.json

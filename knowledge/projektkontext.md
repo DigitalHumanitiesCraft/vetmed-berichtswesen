@@ -55,7 +55,7 @@ Erhoben im Workshop am 13.02.2026 mit Michael Forster und Christopher Pollin. Er
 
 ### Kann-Anforderungen
 
-**Dashboard.** Interaktive Visualisierung auf Basis der konsolidierten Daten. Als Umsetzungsform moeglich, aber nicht entschieden. Alternative: automatisierte Berichte ohne Dashboard.
+**Dashboard.** Interaktives Dashboard auf Basis der konsolidierten Daten. Implementiert als HTML/CSS/JS-Anwendung in docs/ (Epic 3, alle 5 User Stories). Technologieentscheidung: HTML statt Streamlit, weil Zero Dependencies (ausser Chart.js CDN) und einfache Verteilung via GitHub Pages.
 
 **Automatisierte Quartalsberichte.** Abloesung des aktuellen Screenshot-Prozesses (Excel-Grafiken → PowerPoint). Koennten direkt aus der konsolidierten Datenbasis erzeugt werden.
 
@@ -71,7 +71,7 @@ Der angestrebte Prozess gliedert sich in vier Stufen:
 
 **Stufe 2: Konsolidierung.** Einzelne PSBs werden automatisiert zusammengefuehrt (Python-Script). Dieser Schritt enthaelt bewusst eine manuelle Ueberpruefungsphase (Quality Report, siehe [validierung.md](validierung.md)). Der manuelle Anteil kann langfristig sinken, wenn die Eingabequalitaet durch Stufe 1 steigt. Aktuell implementiert in scripts/consolidate.py.
 
-**Stufe 3: Dashboard.** Auswertungen auf Basis der konsolidierten Daten. Ueber Views erweiterbar, sodass neue Anforderungen oder Dimensionen ergaenzt werden koennen, ohne die Datenpipeline zu veraendern. Noch nicht implementiert.
+**Stufe 3: Dashboard.** Interaktives HTML/CSS/JS-Dashboard in docs/ (fuer GitHub Pages). Liest consolidated.json direkt via fetch(). Visualisierungen mit Chart.js (CDN). Keine Python-Abhaengigkeit im Frontend. Implementiert: KPI-Leiste, Ampel-Grid, Budget-Uebersicht (Chart + Tabelle), Zielwert/Istwert-Vergleich, Verteilungs-Charts, Detail-Modal, Filter (Kapitel/Auftraggeber/Ampel). Start via `python start_dashboard.py` (Port 8080). Siehe [anforderungen.md](anforderungen.md) E3-S1 bis E3-S5.
 
 **Stufe 4: Export.** Zielgruppenspezifische Ausgabeformate fuer das Rektorat (PNG, aggregierte Uebersichten, PowerPoint-Folien). Entkoppelt Darstellung und Lieferformat. Noch nicht implementiert.
 
@@ -79,11 +79,13 @@ Der angestrebte Prozess gliedert sich in vier Stufen:
 
 | Nr. | Klaerungsbedarf | Status | Termin |
 |-----|----------------|--------|--------|
-| 1 | Umsetzungsform: Dashboard, automatisierter Bericht oder beides? | offen | offen |
+| 1 | Umsetzungsform: Dashboard, automatisierter Bericht oder beides? | entschieden | – |
 | 2 | Datenstruktur: PSB-Vorlagen, SAP-Format, Berechnungslogik der konsolidierten Excel. Bedeutung "Kapitel": Hypothese ist LV-Kapitel A-D (siehe [rechtlicher-rahmen.md](rechtlicher-rahmen.md)), muss verifiziert werden | offen | 04.03. |
 | 3 | Verhaeltnis Quartalsbericht und [LV-Monitoring](rechtlicher-rahmen.md): BMFWF fuehrt mind. 2x/Jahr Begleitgespraeche, VetMed erstellt intern quartalsweise PSBs. Gemeinsame Datenbasis oder getrennte Prozesse? | offen | 04.03. |
 | 4 | Zuordnung und Speicherort der Kurzbeschreibungen | offen | offen |
 | 5 | Hosting und IT-Zustaendigkeiten (rein interner Betrieb) | offen | offen |
+
+**Zu Punkt 1:** Dashboard als HTML/CSS/JS implementiert (Session 3, 14.02.2026). Entscheidung: Interaktives Dashboard mit Charts und Tabellen. Technologie: HTML statt Streamlit. Export (Epic 4) als separate naechste Stufe.
 
 ## Zeitplan
 
@@ -100,6 +102,7 @@ Alle PSB-Daten sind intern und enthalten personenbezogene sowie institutionell s
 
 ## Verwandte Dokumente
 
+- [anforderungen.md](anforderungen.md) — Epics, User Stories, Rollen, Roadmap, Forschungsgrundlage
 - [datenmodell.md](datenmodell.md) — PSB-Feldstruktur und Datentypen
 - [validierung.md](validierung.md) — Validierungsregeln, Berechnungslogik, Quality Report, Python-Stack
 - [rechtlicher-rahmen.md](rechtlicher-rahmen.md) — UG 2002, LV-Kapitelstruktur, Monitoring-Zyklen
