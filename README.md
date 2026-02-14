@@ -43,6 +43,7 @@ knowledge/
   rechtlicher-rahmen.md     UG 2002, LV-Kapitelstruktur, Monitoring-Zyklen
   datenmodell.md            PSB-Struktur und Felddefinitionen
   validierung.md            Berechnungsregeln, Validierungsstrategie, Quality Report
+  journal.md                Arbeitstagebuch (Entscheidungen, Aenderungen pro Session)
 docs/                       GitHub Pages-Publikation (geplant)
 ```
 

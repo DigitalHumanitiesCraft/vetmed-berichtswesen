@@ -32,6 +32,7 @@ knowledge/
   rechtlicher-rahmen.md     UG 2002, LV-Kapitelstruktur, Monitoring-Zyklen
   datenmodell.md            PSB-Struktur und Felddefinitionen
   validierung.md            Berechnungsregeln, Validierungsstrategie, Quality Report, Python-Stack
+  journal.md                Arbeitstagebuch: Entscheidungen, Aenderungen, offene Punkte pro Session
 docs/                       GitHub Pages-Publikation (noch nicht implementiert)
 ```
 
@@ -69,6 +70,8 @@ Das Konsolidierungsscript erkennt diese Faelle und meldet sie im quality_report.
 ## Wissensdokumente (knowledge/)
 
 Die Dokumente in knowledge/ sind die stabilen Artefakte dieses Repositories. Sie dokumentieren das Domaenenwissen, das vor jeder Code-Aenderung konsultiert werden sollte. Der Code in scripts/ kann jederzeit neu generiert werden, solange die Wissensdokumente korrekt und vollstaendig sind.
+
+**Vor jeder Session:** journal.md lesen. Es dokumentiert alle bisherigen Entscheidungen, Aenderungen und offenen Punkte. Neue Eintraege am Ende jeder Session ergaenzen.
 
 **Einstiegspunkt:** projektkontext.md erklaert das Gesamtprojekt, die Methodik, die Rollen, Anforderungen und offene Punkte. Von dort aus verweisen Inline-Links auf alle anderen Dokumente.
 
