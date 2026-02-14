@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "generiert": "2026-02-13T22:45:17.980564",
+    "anzahl_projekte": 5,
+    "quelldateien": [
+      "PSB_LV-2023-005.xlsx",
+      "PSB_LV-2024-001.xlsx",
+      "PSB_LV-2024-002.xlsx",
+      "PSB_LV-2024-003.xlsx",
+      "PSB_LV-2024-004.xlsx"
+    ]
+  },
+  "projekte": [
+    {
+      "quelldatei": "PSB_LV-2023-005.xlsx",
+      "id": "LV-2023-005",
+      "titel": "Forschungsinfrastruktur Biobank",
+      "kapitel": "Forschung",
+      "auftraggeber": "Vizerektorat Forschung",
+      "laufzeit_von": "01.07.2023",
+      "laufzeit_bis": "30.06.2026",
+      "budget_gesamt": 450000,
+      "budget_verbraucht": 310000,
+      "projektauftrag": "ja",
+      "berichtszeitraum": "Q1",
+      "ampel": "gruen",
+      "indikatoren": [
+        {
+          "name": "Anzahl katalogisierter Proben",
+          "einheit": "Stueck",
+          "zielwert_2024": 5000,
+          "istwert_2024": 5200,
+          "zielwert_2025": 8000,
+          "istwert_2025": null,
+          "zielwert_2026": 12000
+        }
+      ],
+      "massnahmen": [
+        {
+          "name": "Raumumbau und Geraeteinstallation",
+          "status": "abgeschlossen",
+          "termin": "31.12.2023"
+        },
+        {
+          "name": "Datenbanksystem implementieren",
+          "status": "abgeschlossen",
+          "termin": "30.06.2024"
+        },
+        {
+          "name": "Probenuebernahme Altbestand",
+          "status": "in Umsetzung",
+          "termin": "31.03.2025"
+        }
+      ],
+      "kommentar": "Probenuebernahme laeuft planmaessig.",
+      "kurzbeschreibung": "Aufbau einer zentralen Biobank fuer veterinaermedizinische Proben mit standardisierten Lagerungs- und Zugriffsprotokollen.",
+      "warnungen": [
+        "Berichtszeitraum 'Q1' entspricht nicht dem Format 'Qn/YYYY'"
+      ],
+      "budget_verbrauch_pct": 68.9
+    },
+    {
+      "quelldatei": "PSB_LV-2024-001.xlsx",
+      "id": "LV-2024-001",
+      "titel": "Digitalisierung Labormanagement",
+      "kapitel": "Lehre",
+      "auftraggeber": "Vizerektorat Lehre",
+      "laufzeit_von": "01.01.2024",
+      "laufzeit_bis": "31.12.2026",
+      "budget_gesamt": 185000,
+      "budget_verbraucht": 92000,
+      "projektauftrag": "ja",
+      "berichtszeitraum": "Q4/2024",
+      "ampel": "gruen",
+      "indikatoren": [
+        {
+          "name": "Anteil digitalisierter Laborprotokolle",
+          "einheit": "%",
+          "zielwert_2024": 30,
+          "istwert_2024": 35,
+          "zielwert_2025": 60,
+          "istwert_2025": null,
+          "zielwert_2026": 90
+        },
+        {
+          "name": "Anzahl geschulter Mitarbeitender",
+          "einheit": "Personen",
+          "zielwert_2024": 15,
+          "istwert_2024": 18,
+          "zielwert_2025": 30,
+          "istwert_2025": null,
+          "zielwert_2026": 45
+        }
+      ],
+      "massnahmen": [
+        {
+          "name": "Pilotphase Anatomie-Labor",
+          "status": "abgeschlossen",
+          "termin": "30.06.2024"
+        },
+        {
+          "name": "Rollout weitere Labore",
+          "status": "in Umsetzung",
+          "termin": "31.03.2025"
+        },
+        {
+          "name": "Schulungsprogramm Phase 2",
+          "status": "geplant",
+          "termin": "30.09.2025"
+        }
+      ],
+      "kommentar": "Projekt laeuft planmaessig. Pilotphase erfolgreich abgeschlossen.",
+      "kurzbeschreibung": "Einfuehrung eines digitalen Laborinformationssystems zur Verwaltung von Proben, Geraeten und Ergebnissen in der Veterinaeranatomie.",
+      "warnungen": [],
+      "budget_verbrauch_pct": 49.7
+    },
+    {
+      "quelldatei": "PSB_LV-2024-002.xlsx",
+      "id": "LV-2024-002",
+      "titel": "Curriculumreform Veterinaermedizin",
+      "kapitel": "Lehre",
+      "auftraggeber": "Rektorat",
+      "laufzeit_von": "01.03.2024",
+      "laufzeit_bis": "28.02.2027",
+      "budget_gesamt": 320000,
+      "budget_verbraucht": 145000,
+      "projektauftrag": "ja",
+      "berichtszeitraum": "Q4/2024",
+      "ampel": "gelb",
+      "indikatoren": [
+        {
+          "name": "Anteil ueberarbeiteter Module",
+          "einheit": "%",
+          "zielwert_2024": 20,
+          "istwert_2024": 15,
+          "zielwert_2025": 50,
+          "istwert_2025": null,
+          "zielwert_2026": 80
+        },
+        {
+          "name": "Evaluierungsergebnis Studierende",
+          "einheit": "Skala 1-5",
+          "zielwert_2024": 3.5,
+          "istwert_2024": 3.2,
+          "zielwert_2025": 3.8,
+          "istwert_2025": null,
+          "zielwert_2026": 4
+        }
+      ],
+      "massnahmen": [
+        {
+          "name": "Bestandsaufnahme Module",
+          "status": "abgeschlossen",
+          "termin": "30.06.2024"
+        },
+        {
+          "name": "Stakeholder-Workshops",
+          "status": "in Umsetzung",
+          "termin": "31.12.2024"
+        },
+        {
+          "name": "Pilotierung neue Module",
+          "status": "verzoegert",
+          "termin": "30.06.2025"
+        }
+      ],
+      "kommentar": "Verzoegerung bei Stakeholder-Workshops aufgrund von Terminproblemen. Zielwert 2024 knapp verfehlt.",
+      "kurzbeschreibung": "Ueberarbeitung des Studienplans mit Fokus auf One-Health-Ansatz und interdisziplinaere Lehre.",
+      "warnungen": [
+        "Indikator 'Anteil ueberarbeiteter Module': Zielwert 2024 verfehlt (-25.0%)",
+        "Indikator 'Evaluierungsergebnis Studierende': Zielwert 2024 verfehlt (-8.6%)"
+      ],
+      "budget_verbrauch_pct": 45.3
+    },
+    {
+      "quelldatei": "PSB_LV-2024-003.xlsx",
+      "id": "LV-2024-003",
+      "titel": "IT-Sicherheitskonzept",
+      "kapitel": "Infrastruktur",
+      "auftraggeber": "Rektorat",
+      "laufzeit_von": "01.04.2024",
+      "laufzeit_bis": "31.12.2025",
+      "budget_gesamt": 280000,
+      "budget_verbraucht": 195000,
+      "projektauftrag": "nein",
+      "berichtszeitraum": "Q4/2024",
+      "ampel": "rot",
+      "indikatoren": [],
+      "massnahmen": [
+        {
+          "name": "Gap-Analyse",
+          "status": "abgeschlossen",
+          "termin": "30.06.2024"
+        },
+        {
+          "name": "Umsetzung technische Massnahmen",
+          "status": "verzoegert",
+          "termin": "31.12.2024"
+        },
+        {
+          "name": "Schulungen IT-Personal",
+          "status": "verzoegert",
+          "termin": "31.03.2025"
+        }
+      ],
+      "kommentar": "Erhebliche Verzoegerung wegen Personalengpass in der IT-Abteilung. Externer Dienstleister wird evaluiert. Projektauftrag liegt noch nicht vor.",
+      "kurzbeschreibung": "Entwicklung und Implementierung eines umfassenden IT-Sicherheitskonzepts gemaess NIS2-Richtlinie.",
+      "warnungen": [
+        "Kein Projektauftrag vorhanden"
+      ],
+      "budget_verbrauch_pct": 69.6
+    },
+    {
+      "quelldatei": "PSB_LV-2024-004.xlsx",
+      "id": "LV-2024-004",
+      "titel": "Nachhaltigkeitsstrategie Campus",
+      "kapitel": "Infrastruktur",
+      "auftraggeber": "Vizerektorat Infrastruktur",
+      "laufzeit_von": "01.06.2024",
+      "laufzeit_bis": "31.12.2026",
+      "budget_gesamt": 520000,
+      "budget_verbraucht": 78000,
+      "projektauftrag": "ja",
+      "berichtszeitraum": "Q4/2024",
+      "ampel": "gruen",
+      "indikatoren": [
+        {
+          "name": "CO2-Reduktion gegenueber Basisjahr",
+          "einheit": "%",
+          "zielwert_2024": 5,
+          "istwert_2024": 3,
+          "zielwert_2025": 15,
+          "istwert_2025": null,
+          "zielwert_2026": 25
+        },
+        {
+          "name": "Anteil erneuerbare Energie",
+          "einheit": "%",
+          "zielwert_2024": 40,
+          "istwert_2024": 38,
+          "zielwert_2025": 55,
+          "istwert_2025": null,
+          "zielwert_2026": 70
+        }
+      ],
+      "massnahmen": [
+        {
+          "name": "Energieaudit durchfuehren",
+          "status": "abgeschlossen",
+          "termin": "30.09.2024"
+        },
+        {
+          "name": "Photovoltaik-Ausbau Dachflaechen",
+          "status": "verzoegert",
+          "termin": "30.06.2025"
+        },
+        {
+          "name": "Mobilitaetskonzept erarbeiten",
+          "status": "geplant",
+          "termin": "31.12.2025"
+        }
+      ],
+      "kommentar": "Energieaudit abgeschlossen. PV-Ausbau verzoegert wegen Genehmigungsverfahren. Zielwerte knapp verfehlt.",
+      "kurzbeschreibung": "Erarbeitung und Umsetzung einer Nachhaltigkeitsstrategie fuer den gesamten Campus inkl. Energieeffizienz und Mobilitaetskonzept.",
+      "warnungen": [
+        "Indikator 'CO2-Reduktion gegenueber Basisjahr': Zielwert 2024 verfehlt (-40.0%)",
+        "Indikator 'Anteil erneuerbare Energie': Zielwert 2024 verfehlt (-5.0%)",
+        "Massnahme 'Photovoltaik-Ausbau Dachflaechen' verzoegert, aber Ampel ist gruen"
+      ],
+      "budget_verbrauch_pct": 15.0
+    }
+  ]
+}
