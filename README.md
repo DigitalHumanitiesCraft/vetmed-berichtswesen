@@ -44,6 +44,7 @@ knowledge/
   datenmodell.md            PSB-Struktur und Felddefinitionen
   validierung.md            Berechnungsregeln, Validierungsstrategie, Quality Report
   journal.md                Arbeitstagebuch (Entscheidungen, Aenderungen pro Session)
+  anforderungen.md          Epics, User Stories, Rollen, Roadmap
 docs/                       GitHub Pages-Publikation (geplant)
 ```
 

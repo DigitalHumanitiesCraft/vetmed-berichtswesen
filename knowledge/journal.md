@@ -49,3 +49,38 @@ Arbeitstagebuch des Projekts vetmed-berichtswesen. Dokumentiert Entscheidungen u
 - Dashboard (Stufe 3) und Export (Stufe 4) noch nicht implementiert
 - Rolle der Wissensbilanz (WBV) im Workflow
 - pandera-Schema fuer automatisierte Validierung
+
+---
+
+## 2026-02-14 (Session 2) – Anforderungsanalyse und User Stories
+
+**Teilnehmer:** Christopher Pollin, Claude (KI-Assistent)
+
+### Entscheidungen
+
+1. **Anforderungsdokument**: knowledge/anforderungen.md als eigenstaendiges Dokument (nicht in projektkontext.md integriert), weil es eine andere Funktion hat (Tracking vs. Kontextbeschreibung).
+2. **5 Epics entlang des 4-Stufen-Workflows**: Epic 1 (Erfassung), Epic 2 (Konsolidierung), Epic 3 (Dashboard), Epic 4 (Export), Epic 5 (Wissensbasis). Epic 1, 2 und 5 sind Done.
+3. **4 Rollen identifiziert**: FV (Forster), PL (Pollin), RK (Rektorat), PE (Projekterfasser).
+4. **Forschungsbasierung**: 10 externe Quellen (2024-2025) als Quellenverzeichnis mit URLs aufgenommen.
+5. **Streamlit als Dashboard-Technologie**: Fuer Promptotyping-Phase empfohlen (Kanaries 2025).
+6. **Naechster Schritt**: Epic 3 (Dashboard), abhaengig vom Workshop 04.03.
+
+### Aenderungen
+
+| Datei | Aenderung |
+|-------|-----------|
+| knowledge/anforderungen.md | Neu: 5 Epics, 18 User Stories, 4 Rollen, Forschungstabelle, 10 Quellen |
+| CLAUDE.md | anforderungen.md in Repository-Struktur und Wissensdokumente aufgenommen |
+| README.md | anforderungen.md in Repository-Struktur aufgenommen |
+| knowledge/journal.md | Dieser Eintrag |
+
+### Forschungsbefunde (Auswahl)
+
+- ECKM-Studie: Wissensbilanz-Digitalisierung des BMBWF hatte identisches Problem (manuelle PDF-Kompilierung)
+- BMBWF LV 2025-2027: Aktiver Zyklus, VetMedUni mit Digitalisierungsschwerpunkt (GSV 4)
+- Steiner/Pollin CHI 2025: Promptotyping-Methodik als Grundlage bestaetigt
+- TDWI 2024/2025: Propose-Validate-Pattern und 8 Datenqualitaetsdimensionen validieren Ansatz
+
+### Offen
+
+- Unveraendert gegenueber Session 1 (Workshop 04.03. steht noch aus)

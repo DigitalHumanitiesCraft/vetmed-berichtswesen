@@ -33,6 +33,7 @@ knowledge/
   datenmodell.md            PSB-Struktur und Felddefinitionen
   validierung.md            Berechnungsregeln, Validierungsstrategie, Quality Report, Python-Stack
   journal.md                Arbeitstagebuch: Entscheidungen, Aenderungen, offene Punkte pro Session
+  anforderungen.md          Epics, User Stories, Rollen, Roadmap, Forschungsgrundlage
 docs/                       GitHub Pages-Publikation (noch nicht implementiert)
 ```
 
@@ -78,6 +79,8 @@ Die Dokumente in knowledge/ sind die stabilen Artefakte dieses Repositories. Sie
 **Fuer Datenverarbeitung:** datenmodell.md (Feldstruktur) → validierung.md (Berechnungsregeln, Validierungsstrategie, Quality Report, Python-Stack).
 
 **Fuer fachlichen Kontext:** rechtlicher-rahmen.md (UG 2002, LV-Kapitel, Monitoring-Zyklen).
+
+**Fuer Anforderungen:** anforderungen.md (Epics, User Stories, Rollen, Roadmap). Durch aktuelle Forschung (2024-2025) methodisch untermauert.
 
 **Offene Punkte:** Alle im Workshop am 13.02. identifizierten Klaerungsbedarfe sind in projektkontext.md dokumentiert. Die wichtigsten: Kapitel-Zuordnung (A-D oder Lehre/Forschung/Infrastruktur?) und Verhaeltnis Quartalsbericht/LV-Monitoring. Klaerung geplant fuer 04.03.
 
