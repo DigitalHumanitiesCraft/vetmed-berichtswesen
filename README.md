@@ -62,6 +62,6 @@ Die 5 PSBs bilden realistische Szenarien ab:
 
 Teil des VetMedAI-Projekts (KI-Kompetenzaufbau an der VetMedUni Wien, 01/2026–10/2026). Verwandtes Repository: [vetmed-wissensbilanz](https://github.com/DigitalHumanitiesCraft/vetmed-wissensbilanz) (Use Case 1).
 
-## Lizenz
+## Hinweis
 
-Synthetische Daten und Code stehen unter MIT-Lizenz. Keine realen Daten enthalten.
+Internes Repository der VetMedUni Wien. Enthaelt ausschliesslich synthetische Testdaten.
