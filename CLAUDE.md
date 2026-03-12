@@ -64,7 +64,7 @@ start_dashboard.py                Konvertiert XLSX → JSON, startet HTTP-Server
 
 Jeder Projektstatusbericht ist eine Excel-Datei mit 43 Zeilen x 12 Spalten und 59 Merged-Cell-Bereichen:
 
-**Identifikation:** LV-Nr. (z.B. A1.1.1.1), Bezeichnung, Projektleitung, PAG (Rektor/VRLK/VRFDI/VRFIN), Fertigstellungsgrad, Projektphase.
+**Identifikation:** LV-Nr. (z.B. A1.1.1.1.1), Bezeichnung, Projektleitung, PAG (Rektor/VRLK/VRFDI/VRFIN), Fertigstellungsgrad, Projektphase.
 
 **Meilensteine:** Bis zu 8 Stueck mit Plan-Datum (LV), Plan-Datum (aktuell), Ist-Datum, Erlaeuterung.
 

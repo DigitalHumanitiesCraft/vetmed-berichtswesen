@@ -103,7 +103,7 @@ Transformation, Aggregation und Export nach der Extraktion. Optimiert fuer tabel
 
 ### pandera
 
-Schema-Validierung fuer DataFrames. Lightweight Alternative zu Great Expectations. Bietet Lazy Validation (alle Fehler auf einmal melden statt beim ersten abzubrechen), native pandas-Integration und deklarative Schema-Definition. Geeignet fuer die automatisierte Stufe 1 und 2 der Validierung.
+Schema-Validierung fuer DataFrames. Wurde evaluiert, aber nicht umgesetzt. Stattdessen prueft `prototype/check.py` die konsolidierten Daten direkt gegen Quelldateien und bekannte Sollwerte (31 Checks in 6 Kategorien: Quelldaten-Abgleich, Normalisierung, Datumsfelder, Budget/SAP, Vollstaendigkeit, Validierungsspalte). Das ist fuer den Promptotype-Umfang ausreichend und vermeidet eine zusaetzliche Abhaengigkeit.
 
 ### Zielformate
 

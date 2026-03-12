@@ -65,7 +65,7 @@ Quelle: `PSB_2026-01_VORLAGE.xlsx` (2 Sheets: Statusbericht + Parameter)
 
 ### 1.6 Befuellungsmuster (aus Beispieldaten)
 
-| Feld | A1.1.1.1 | C1.2.2 | C7.7.7.8 | D3.3.3 |
+| Feld | A1.1.1.1.1 | C1.2.2 | C7.7.7.8 | D3.3.3 |
 |---|---|---|---|---|
 | Ampel | Gruen | Gruen | Gelb | Rot |
 | Phase | In Arbeit | Planung | Nicht gestartet | Planung |

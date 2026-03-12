@@ -46,7 +46,7 @@ Alle Originaldateien liegen in `../quelldaten/`, sortiert nach Dokumenttyp.
 
 | LV-Nr. | Bezeichnung | PAG | Ampel | Phase |
 |---|---|---|---|---|
-| A1.1.1.1 | Zentrale Beschaffung Labormaterialien | VRFIN | Gruen | In Arbeit (33%) |
+| A1.1.1.1.1 | Zentrale Beschaffung Labormaterialien | VRFIN | Gruen | In Arbeit (33%) |
 | C1.2.2 | Digitale Lehr- und Pruefungsorganisation | VRLK | Gruen | Planung |
 | C7.7.7.8 | Einfuehrung Erweiterungsstudium | VRLK | Gelb | Nicht gestartet |
 | D3.3.3 | Neubau Elefantenhaus | Rektor | Rot | Planung (10%) |

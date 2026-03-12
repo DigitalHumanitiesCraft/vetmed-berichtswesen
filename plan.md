@@ -54,10 +54,10 @@ output/
 - [ ] Normalisierung: Ampel, PAG, Phase, Datumsformate
 
 **Verifikation:** Fuer jeden der 4 PSBs pruefen:
-- A1.1.1.1: Ampel=In Ordnung, Phase=In Arbeit, Fortschritt=0.33, Risiko=Mittel, 6 Meilensteine
+- A1.1.1.1.1: Ampel=In Ordnung, Phase=In Arbeit, Fortschritt=0.33, Risiko=Mittel, 8 Meilensteine
 - C1.2.2: Ampel=In Ordnung, Phase=Planung, Fortschritt=0, Risiko=Gering, 1 Meilenstein
 - C7.7.7.8: Ampel=Vorsicht, Phase=Idee erfasst/noch nicht gestartet, Fortschritt=0, Risiko=Mittel, 1 Meilenstein
-- D3.3.3: Ampel=Krise, Phase=Planung, Fortschritt=0.1, Risiko=Hoch, 4 Meilensteine
+- D3.3.3: Ampel=Krise, Phase=Planung, Fortschritt=0.1, Risiko=Hoch, 6 Meilensteine
 
 ---
 

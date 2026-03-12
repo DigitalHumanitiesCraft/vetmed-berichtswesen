@@ -4,6 +4,31 @@ Arbeitstagebuch des Projekts vetmed-berichtswesen. Dokumentiert Entscheidungen u
 
 ---
 
+## 2026-03-12 (Spaet) – Verifikationsskript und Dokumentationsbereinigung
+
+**Teilnehmer:** Christopher Pollin, Claude (KI-Assistent)
+
+### Kontext
+
+Frage: Wie kann geprueft werden, ob die Konsolidierung korrekt funktioniert? Ergebnis: Verifikationsskript statt pandera-Schema.
+
+### Aenderungen
+
+- **check.py erstellt** (prototype/check.py): 31 Checks in 6 Kategorien (Quelldaten-Abgleich, Normalisierung, Datumsfelder, Budget/SAP, Vollstaendigkeit, Validierungsspalte). Liest konsolidiert.xlsx und prueft gegen bekannte Sollwerte in config.py.
+- **3 Fehler beim ersten Lauf gefunden und behoben:**
+  1. LV-Nr A1.1.1.1.1: PSB-Datei heisst PSB_A1.1.1.1.xlsx, aber Zelle B3 enthaelt 5-stellige LV-Nr "LV25-27 A1.1.1.1.1"
+  2. C7.7.7.8 hat 1 Meilenstein (nicht 6 wie im Journal dokumentiert)
+  3. Division-by-Zero: istkosten_prozent war NaN fuer Projekte ohne SAP-Daten (None → 0.0)
+- **pandera-Schema**: Als "nicht umgesetzt" dokumentiert. check.py deckt die Validierung ab, pandera waere Overengineering.
+- **Knowledge-Korrekturen**: LV-Nr A1.1.1.1 → A1.1.1.1.1 in README.md, CLAUDE.md, data.md, index.md, journal.md, plan.md
+
+### Entscheidungen
+
+1. **check.py statt pandera**: Quelldaten-Abgleich ist aussagekraeftiger als abstraktes Schema. Keine zusaetzliche Abhaengigkeit.
+2. **ERWARTETE_WERTE in config.py**: Bekannte Sollwerte der 4 Beispielprojekte, manuell verifiziert. Bei Wechsel auf echte Daten muessen diese angepasst werden.
+
+---
+
 ## 2026-03-12 – Repository-Migration und Dashboard-Update
 
 **Teilnehmer:** Christopher Pollin, Claude (KI-Assistent)
@@ -52,7 +77,7 @@ Die Fachverantwortliche (Sabrina Laboureix) hat die echten Quelldaten uebermitte
 | Verhaeltnis Quartalsbericht/LV-Monitoring | Geklaert: Gemeinsame Datenbasis, getrennte Exporte |
 | Dashboard (Stufe 3) | Implementiert und ans neue Datenmodell angepasst |
 | Export (Stufe 4) | Implementiert (PPTX, Dashboard-Excel, LV-Monitoring) |
-| pandera-Schema | Noch offen |
+| pandera-Schema | Nicht umgesetzt, ersetzt durch check.py (31 Checks, Quelldaten-Abgleich) |
 
 ---
 
@@ -62,8 +87,8 @@ Die Fachverantwortliche (Sabrina Laboureix) hat die echten Quelldaten uebermitte
 
 - 8 generierte Charts visuell gegen Quelldaten verifiziert — alle Werte korrekt
 - 4 Faktenfehler in Knowledge korrigiert:
-  - index.md: A1.1.1.1 PAG war VRFDI, richtig ist VRFIN (aus PSB L2)
-  - data.md Section 1.6: A1.1.1.1 Meilensteine 6→8, D3.3.3 Meilensteine 4→6
+  - index.md: A1.1.1.1.1 PAG war VRFDI, richtig ist VRFIN (aus PSB L2)
+  - data.md Section 1.6: A1.1.1.1.1 Meilensteine 6→8, D3.3.3 Meilensteine 4→6
 - 2 neue Erkenntnisse in data.md dokumentiert:
   - PSB B3 enthaelt Prefix "LV25-27 " (Section 1.1)
   - SAP kann Mehrfach-LV-Nummern enthalten, "+"-getrennt (Section 4)
