@@ -354,7 +354,7 @@ def konsolidiere(psbs: list[dict], sap_df: pd.DataFrame, ppm_df: pd.DataFrame) -
             sap_row.get("istkosten_2027", 0)
         )
         plankosten_gesamt = sap_row.get("plankosten_gesamt", 0)
-        istkosten_prozent = istkosten_gesamt / plankosten_gesamt if plankosten_gesamt else None
+        istkosten_prozent = istkosten_gesamt / plankosten_gesamt if plankosten_gesamt else 0.0
 
         row = {
             "lv_nummer": lv_nr,

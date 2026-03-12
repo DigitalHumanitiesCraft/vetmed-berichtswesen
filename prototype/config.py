@@ -215,3 +215,40 @@ LEISTUNGSBEREICHE = {
     "C": "Lehre",
     "D": "Sonstige Leistungsbereiche",
 }
+
+# --- Erwartete Werte fuer Verifikation (manuell verifiziert, Journal 10.03.2026) ---
+
+ERWARTETE_WERTE = {
+    "A1.1.1.1.1": {
+        "ampelstatus": "In Ordnung",
+        "pag": "VRFIN",
+        "projektphase": "In Arbeit",
+        "fertigstellungsgrad": 0.33,
+        "meilensteine_anzahl": 8,
+        "projektname": "Zentrale Beschaffung Labormaterialien",
+    },
+    "C1.2.2": {
+        "ampelstatus": "In Ordnung",
+        "pag": "VRLK",
+        "projektphase": "Planung",
+        "fertigstellungsgrad": 0.0,
+        "meilensteine_anzahl": 1,
+        "projektname": "Digitale Lehr- und Pruefungsorganisation",
+    },
+    "C7.7.7.8": {
+        "ampelstatus": "Vorsicht",
+        "pag": "VRLK",
+        "projektphase": "Idee erfasst/noch nicht gestartet",
+        "fertigstellungsgrad": 0.0,
+        "meilensteine_anzahl": 1,
+        "projektname": "Einfuehrung Erweiterungsstudium",
+    },
+    "D3.3.3": {
+        "ampelstatus": "Krise",
+        "pag": "Rektor",
+        "projektphase": "Planung",
+        "fertigstellungsgrad": 0.1,
+        "meilensteine_anzahl": 6,
+        "projektname": "Neubau Elefantenhaus",
+    },
+}
