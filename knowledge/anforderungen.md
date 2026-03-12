@@ -8,7 +8,7 @@ Forschungsgrundlage: Die Anforderungen stuetzen sich auf externe Befunde aus 202
 
 | Kuerzel | Rolle | Person | Kernbeduerfnis |
 |---------|-------|--------|----------------|
-| **FV** | Fachverantwortlicher | Michael Forster | Korrekte, vollstaendige Konsolidierung mit Kontrollmoeglichkeit |
+| **FV** | Fachverantwortliche | Sabrina Laboureix | Korrekte, vollstaendige Konsolidierung mit Kontrollmoeglichkeit |
 | **PL** | Projektleiter VetMedAI UC2 | Christopher Pollin | Funktionsfaehiger Promptotype, uebertragbare Methodik |
 | **RK** | Rektorat | (Gremium) | Ampel-Uebersicht, rote Projekte, Budgetstatus auf einen Blick |
 | **PE** | Projekterfasser | (diverse) | Einfache, fehlertolerante Dateneingabe |
@@ -16,15 +16,13 @@ Forschungsgrundlage: Die Anforderungen stuetzen sich auf externe Befunde aus 202
 ## Roadmap
 
 ```
-Done                    Naechster Schritt           Spaeter
-─────────────────────   ─────────────────────────   ──────────────────
-Epic 1 (Erfassung)      Epic 4 (Export)
-Epic 2 (Konsolidierung) ├─ E4-S1 PNG/PDF-Export
-Epic 3 (Dashboard)      ├─ E4-S2 Quartalsbericht
-Epic 5 (Wissensbasis)   └─ E4-S3 LV-Einzelberichte
-
-                        Abhaengigkeit: Workshop 04.03.
-                        (Kapitel-Dimension, LV-Monitoring)
+Done                    Naechster Schritt
+─────────────────────   ─────────────────────────
+Epic 1 (Erfassung)      Dashboard an neues Datenmodell anpassen
+Epic 2 (Konsolidierung) Weitere Visualisierungen/Auswertungen
+Epic 3 (Dashboard)
+Epic 4 (Export)
+Epic 5 (Wissensbasis)
 ```
 
 ---
@@ -79,15 +77,15 @@ Implementiert als HTML/CSS/JS-Dashboard (docs/). Datenquelle: consolidated.json 
 
 ## Epic 4: Export (Stufe 4)
 
-*Status: Offen — nach Dashboard*
+*Status: Implementiert (prototype/03_bericht.py)*
 
 | ID | User Story | Prioritaet | Status |
 |----|-----------|-------------|--------|
-| E4-S1 | Als RK will ich eine Ampel-Uebersicht als PNG/PDF, damit ich sie in Praesentationen einbetten kann. | Muss | Offen |
-| E4-S2 | Als FV will ich einen aggregierten Quartalsbericht als PDF, damit ich ihn ohne technische Werkzeuge weitergeben kann. | Kann | Offen |
-| E4-S3 | Als FV will ich einzelne Projektberichte als Vorlage fuer die LV-Begleitgespraeche exportieren, damit ich nicht manuell zusammenstellen muss. | Kann | Offen |
+| E4-S1 | Als RK will ich eine Ampel-Uebersicht als PNG, damit ich sie in Praesentationen einbetten kann. | Muss | Done |
+| E4-S2 | Als FV will ich einen aggregierten Quartalsbericht als PPTX, damit ich ihn ohne technische Werkzeuge weitergeben kann. | Kann | Done |
+| E4-S3 | Als FV will ich ein LV-Monitoring-Excel (Ampelstatus + Erlaeuterung + Zielwerte pro Vorhaben) fuer das BMBWF exportieren. | Kann | Done |
 
-Der aktuelle Prozess nutzt Screenshots (Excel → PowerPoint). Automatisierter Export ersetzt diesen Medienbruch. BMBWF-Begleitgespraeche finden mind. 2x/Jahr statt (siehe [rechtlicher-rahmen.md](rechtlicher-rahmen.md)) — E4-S3 adressiert diesen konkreten Berichtsanlass.
+Implementiert in `prototype/`: 8 PNG-Charts (matplotlib), PPTX-Quartalsbericht (Template-basiert), Dashboard-Excel im Portfolio_Daten-Format (48 Spalten, Tabelle1), LV-Monitoring-Excel.
 
 ---
 

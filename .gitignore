@@ -17,3 +17,6 @@ venv/
 
 # Dashboard (generierte Kopie, wird von start_dashboard.py erzeugt)
 docs/consolidated.json
+
+# Output (generierte Ergebnisse, reproduzierbar via prototype/)
+output/

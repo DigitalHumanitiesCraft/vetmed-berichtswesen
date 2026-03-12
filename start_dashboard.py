@@ -1,51 +1,110 @@
 """
-Startet einen lokalen HTTP-Server fuer das PSB Dashboard.
+Lokaler HTTP-Server fuer das Dashboard.
 
-Verwendung:
-    python start_dashboard.py
+1. Liest output/review/konsolidiert.xlsx
+2. Konvertiert in docs/consolidated.json (Dashboard-Datenformat)
+3. Startet HTTP-Server auf Port 8080
+4. Oeffnet Browser
 
-Oeffnet http://localhost:8080 im Browser.
-Das Dashboard liest consolidated.json aus dem docs/-Verzeichnis.
+Verwendung: python start_dashboard.py
 """
 
 import http.server
 import os
-import shutil
 import sys
 import webbrowser
+import json
 from pathlib import Path
+from datetime import datetime, date
 
+SCRIPT_DIR = Path(__file__).parent
+DOCS_DIR = SCRIPT_DIR / "docs"
+SOURCE_XLSX = SCRIPT_DIR / "output" / "review" / "konsolidiert.xlsx"
+TARGET_JSON = DOCS_DIR / "consolidated.json"
 PORT = 8080
-DASHBOARD_DIR = Path(__file__).parent / "docs"
+
+
+def xlsx_to_json():
+    """Konvertiert konsolidiert.xlsx in consolidated.json fuer das Dashboard."""
+    try:
+        import openpyxl
+    except ImportError:
+        print("FEHLER: openpyxl nicht installiert. Bitte: pip install openpyxl")
+        sys.exit(1)
+
+    if not SOURCE_XLSX.exists():
+        print(f"FEHLER: {SOURCE_XLSX} nicht gefunden.")
+        print("Bitte zuerst: cd prototype && python 01_konsolidierung.py")
+        sys.exit(1)
+
+    wb = openpyxl.load_workbook(SOURCE_XLSX, data_only=True)
+    ws = wb["Konsolidiert"]
+
+    # Header lesen (Zeile 1)
+    headers = []
+    for col in range(1, ws.max_column + 1):
+        val = ws.cell(row=1, column=col).value
+        if val:
+            headers.append(str(val).strip())
+        else:
+            headers.append(f"col_{col}")
+
+    # Daten lesen
+    projekte = []
+    for row in range(2, ws.max_row + 1):
+        vals = {}
+        for col_idx, header in enumerate(headers, 1):
+            val = ws.cell(row=row, column=col_idx).value
+            if isinstance(val, (datetime, date)):
+                val = val.isoformat()
+            vals[header] = val
+
+        if not vals.get("lv_nummer") and not vals.get("projektname"):
+            continue
+
+        projekte.append(vals)
+
+    wb.close()
+
+    output = {
+        "meta": {
+            "generiert": datetime.now().isoformat(),
+            "anzahl_projekte": len(projekte),
+            "quelle": SOURCE_XLSX.name,
+        },
+        "projekte": projekte,
+    }
+
+    with open(TARGET_JSON, "w", encoding="utf-8") as f:
+        json.dump(output, f, ensure_ascii=False, indent=2, default=str)
+
+    print(f"  {len(projekte)} Projekte -> {TARGET_JSON.name}")
+    return len(projekte)
 
 
 def main():
-    if not DASHBOARD_DIR.exists():
-        print(f"Fehler: Dashboard-Verzeichnis nicht gefunden: {DASHBOARD_DIR}")
+    if not DOCS_DIR.exists():
+        print(f"FEHLER: {DOCS_DIR} nicht gefunden.")
         sys.exit(1)
 
-    source = Path(__file__).parent / "data" / "consolidated" / "consolidated.json"
-    target = DASHBOARD_DIR / "consolidated.json"
-    if source.exists():
-        shutil.copy2(source, target)
-        print(f"consolidated.json aktualisiert aus {source}")
-    else:
-        print(f"Warnung: {source} nicht gefunden. Dashboard verwendet vorhandene Daten.")
+    print("Konvertiere konsolidiert.xlsx -> consolidated.json ...")
+    n = xlsx_to_json()
+    print(f"  {n} Projekte konvertiert.\n")
 
-    os.chdir(DASHBOARD_DIR)
+    os.chdir(DOCS_DIR)
     handler = http.server.SimpleHTTPRequestHandler
-    server = http.server.HTTPServer(("", PORT), handler)
+    handler.log_message = lambda *args: None
 
-    url = f"http://localhost:{PORT}"
-    print(f"PSB Dashboard laeuft auf {url}")
-    print("Beenden mit Strg+C")
+    print(f"Dashboard: http://localhost:{PORT}")
+    print("Beenden mit Ctrl+C\n")
 
-    webbrowser.open(url)
+    webbrowser.open(f"http://localhost:{PORT}")
+
     try:
-        server.serve_forever()
+        with http.server.HTTPServer(("", PORT), handler) as httpd:
+            httpd.serve_forever()
     except KeyboardInterrupt:
         print("\nServer beendet.")
-        server.server_close()
 
 
 if __name__ == "__main__":

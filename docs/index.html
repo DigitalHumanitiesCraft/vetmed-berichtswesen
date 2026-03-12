@@ -1,12 +1,12 @@
 <!--
-    PSB Dashboard - VetMedUni Wien
-    Projektstatusbericht Dashboard (Stufe 3 des PSB-Workflows).
+    Projektportfolio Dashboard - VetMedUni Wien
+    LV-Vorhaben 2025-2027
 
     Dateien:
       index.html          Semantische HTML-Struktur (diese Datei)
-      style.css           Design-System (CSS Custom Properties, BEM)
+      style.css           Design-System (CSS Custom Properties)
       app.js              Anwendungslogik (Daten, Charts, Filter, Modal)
-      consolidated.json   Datenquelle (aus Stufe 2, via start_dashboard.py kopiert)
+      consolidated.json   Datenquelle (generiert von start_dashboard.py)
 
     Start: python start_dashboard.py (lokaler HTTP-Server auf Port 8080)
 -->
@@ -15,7 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PSB Dashboard | VetMedUni Wien</title>
+    <title>Projektportfolio Dashboard | VetMedUni Wien</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a5490'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white'>P</text></svg>">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -25,8 +25,8 @@
     <!-- Header -->
     <header class="header">
         <div class="header__brand">
-            <h1 class="header__title">Projektstatusbericht Dashboard</h1>
-            <span class="header__subtitle">VetMedUni Wien &mdash; LV-Vorhaben</span>
+            <h1 class="header__title">Projektportfolio LV-Vorhaben 2025&ndash;2027</h1>
+            <span class="header__subtitle">VetMedUni Wien &mdash; Stabsstelle SUES</span>
         </div>
         <div class="header__meta">
             <span id="metaTimestamp"></span>
@@ -43,7 +43,7 @@
     </div>
 
     <!-- Testdaten-Banner -->
-    <div class="test-banner">Synthetische Testdaten &mdash; Kein Echtbetrieb</div>
+    <div class="test-banner">Fiktive Beispieldaten &mdash; Kein Echtbetrieb</div>
 
     <!-- KPI-Leiste -->
     <section class="kpi-bar" id="kpiBar">
@@ -70,29 +70,29 @@
         </div>
         <div class="kpi-card">
             <span class="kpi-card__value" id="kpiBudgetTotal">--</span>
-            <span class="kpi-card__label">Gesamtbudget (EUR)</span>
+            <span class="kpi-card__label">Plankosten gesamt (EUR)</span>
         </div>
         <div class="kpi-card">
             <span class="kpi-card__value" id="kpiBudgetPct">--</span>
-            <span class="kpi-card__label">Budget verbraucht</span>
+            <span class="kpi-card__label">Istkosten in %</span>
         </div>
         <div class="kpi-card kpi-card--warnings">
-            <span class="kpi-card__value" id="kpiWarnungen">--</span>
-            <span class="kpi-card__label">Warnungen</span>
+            <span class="kpi-card__value" id="kpiValidierung">--</span>
+            <span class="kpi-card__label">Validierungsprobleme</span>
         </div>
     </section>
 
     <!-- Filter-Leiste -->
     <section class="filter-bar" id="filterBar">
         <div class="filter-bar__group">
-            <label class="filter-bar__label" for="filterKapitel">Kapitel:</label>
-            <select class="filter-bar__select" id="filterKapitel">
+            <label class="filter-bar__label" for="filterLeistungsbereich">Leistungsbereich:</label>
+            <select class="filter-bar__select" id="filterLeistungsbereich">
                 <option value="">Alle</option>
             </select>
         </div>
         <div class="filter-bar__group">
-            <label class="filter-bar__label" for="filterAuftraggeber">Auftraggeber:</label>
-            <select class="filter-bar__select" id="filterAuftraggeber">
+            <label class="filter-bar__label" for="filterPAG">PAG:</label>
+            <select class="filter-bar__select" id="filterPAG">
                 <option value="">Alle</option>
             </select>
         </div>
@@ -100,9 +100,15 @@
             <label class="filter-bar__label" for="filterAmpel">Ampelstatus:</label>
             <select class="filter-bar__select" id="filterAmpel">
                 <option value="">Alle</option>
-                <option value="gruen">Gruen</option>
-                <option value="gelb">Gelb</option>
-                <option value="rot">Rot</option>
+                <option value="In Ordnung">In Ordnung</option>
+                <option value="Vorsicht">Vorsicht</option>
+                <option value="Krise">Krise</option>
+            </select>
+        </div>
+        <div class="filter-bar__group">
+            <label class="filter-bar__label" for="filterPhase">Phase:</label>
+            <select class="filter-bar__select" id="filterPhase">
+                <option value="">Alle</option>
             </select>
         </div>
         <button class="filter-bar__reset" id="filterReset">Filter zuruecksetzen</button>
@@ -110,20 +116,14 @@
 
     <!-- Ampel-Uebersicht -->
     <section class="section" id="sectionAmpel">
-        <h2 class="section__title">Ampel-Uebersicht</h2>
+        <h2 class="section__title">Portfoliouebersicht</h2>
         <div class="ampel-grid" id="ampelGrid"></div>
     </section>
 
     <!-- Budget-Uebersicht -->
     <section class="section" id="sectionBudget">
-        <h2 class="section__title">Budget-Uebersicht</h2>
+        <h2 class="section__title">Budget: Plan vs. Ist</h2>
         <div id="budgetContent"></div>
-    </section>
-
-    <!-- Zielwert/Istwert-Vergleich -->
-    <section class="section" id="sectionSollIst">
-        <h2 class="section__title">Zielwert / Istwert-Vergleich (2024)</h2>
-        <div class="sollIst-grid" id="sollIstGrid"></div>
     </section>
 
     <!-- Verteilungen -->
@@ -151,49 +151,28 @@
                 </div>
 
                 <div class="modal__section">
-                    <h3>Indikatoren</h3>
-                    <div class="table-container">
-                        <table class="data-table" id="modalIndikatoren">
-                            <thead>
-                                <tr>
-                                    <th>Indikator</th>
-                                    <th>Einheit</th>
-                                    <th class="text-right">Ziel 2024</th>
-                                    <th class="text-right">Ist 2024</th>
-                                    <th class="text-right">Ziel 2025</th>
-                                    <th class="text-right">Ist 2025</th>
-                                    <th class="text-right">Ziel 2026</th>
-                                </tr>
-                            </thead>
-                            <tbody id="modalIndikatorenBody"></tbody>
-                        </table>
-                    </div>
+                    <h3>Meilensteine</h3>
+                    <p id="modalMeilensteine"></p>
                 </div>
 
                 <div class="modal__section">
-                    <h3>Massnahmen</h3>
-                    <div class="table-container">
-                        <table class="data-table" id="modalMassnahmen">
-                            <thead>
-                                <tr>
-                                    <th>Massnahme</th>
-                                    <th>Status</th>
-                                    <th>Termin</th>
-                                </tr>
-                            </thead>
-                            <tbody id="modalMassnahmenBody"></tbody>
-                        </table>
-                    </div>
+                    <h3>Status aktuell</h3>
+                    <p id="modalStatus"></p>
                 </div>
 
                 <div class="modal__section">
-                    <h3>Kommentar</h3>
-                    <p id="modalKommentar"></p>
+                    <h3>Risiken und Hindernisse</h3>
+                    <p id="modalRisiken"></p>
                 </div>
 
-                <div class="modal__section modal__section--warnings" id="modalWarnungenSection">
-                    <h3>Warnungen</h3>
-                    <ul id="modalWarnungen"></ul>
+                <div class="modal__section">
+                    <h3>Entscheidungsbedarf</h3>
+                    <p id="modalEntscheidung"></p>
+                </div>
+
+                <div class="modal__section modal__section--warnings" id="modalValidierungSection">
+                    <h3>Validierung</h3>
+                    <p id="modalValidierung"></p>
                 </div>
             </div>
         </div>
@@ -201,7 +180,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <span>PSB Dashboard &mdash; VetMedUni Wien</span>
+        <span>Projektportfolio LV-Vorhaben &mdash; VetMedUni Wien</span>
     </footer>
 
     <script src="app.js"></script>

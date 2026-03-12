@@ -26,7 +26,7 @@ Zuordnungen wie "Kapitel" oder "Auftraggeber" existieren als implizite Wertelist
 
 Die Validierung erfolgt in vier Stufen, von automatisierbar bis manuell:
 
-**Stufe 1: Schema-Validierung.** Technisch pruefbar: Existiert das erwartete Feld? Stimmt der Datentyp? Liegt der Wert im gueltigen Bereich? Entspricht das Format dem Standard (z.B. Qn/YYYY, siehe Feldstruktur in [datenmodell.md](datenmodell.md))? Vollstaendig automatisierbar.
+**Stufe 1: Schema-Validierung.** Technisch pruefbar: Existiert das erwartete Feld? Stimmt der Datentyp? Liegt der Wert im gueltigen Bereich? Entspricht das Format dem Standard (siehe Feldstruktur in [data.md](data.md), Normalisierungsregeln in [parameter.md](parameter.md))? Vollstaendig automatisierbar.
 
 **Stufe 2: Konsistenz-Validierung.** Querbezuege innerhalb eines Datensatzes: Ampelstatus gegenueber Massnahmen-Status, Budget verbraucht gegenueber Budget gesamt, Istwert gegenueber Zielwert. Automatisch erkennbar, aber die Bewertung erfordert Domaenenwissen.
 
@@ -113,27 +113,24 @@ Schema-Validierung fuer DataFrames. Lightweight Alternative zu Great Expectation
 | SQLite | Primaerer Speicher (optional) | Abfragbar, transaktional, einzelne Datei. Aktuell nicht genutzt |
 | CSV | Excel-Kompatibilitaet | Semikolon-Trenner fuer deutschsprachiges Umfeld |
 
-## Implementiert im Dashboard (Stufe 3)
+## Implementiert
 
-Die folgenden Auswertungen sind im Dashboard (docs/) umgesetzt:
+### Dashboard (docs/)
+- Ampel-Uebersicht: KPI-Leiste und Ampel-Grid mit Projektkarten
+- Budget-Uebersicht: Chart + Tabelle, Verbrauch in % pro Projekt
+- Filter nach PAG, Leistungsbereich, Ampelstatus
+- Detail-Modal: Vollansicht pro Projekt
 
-- **Ampel-Uebersicht:** KPI-Leiste und Ampel-Grid mit Projektkarten
-- **Budget-Uebersicht:** Horizontales Balkendiagramm + Tabelle mit Summenzeile, Verbrauch in % pro Projekt
-- **Uebersicht nach Kapitel:** Pie-Chart in den Verteilungs-Charts, Filter nach Kapitel
-- **Zielwert/Istwert-Vergleich:** Gruppierte Balkendiagramme pro Projekt (2024)
-- **Massnahmenstatus-Verteilung:** Donut-Chart (geplant/in Umsetzung/abgeschlossen/verzoegert)
-- **Detail-Modal:** Vollansicht pro Projekt (Indikatoren, Massnahmen, Warnungen, Kommentar)
-
-## Noch nicht implementiert
-
-- **Zeitleiste/Gantt:** Visuelle Darstellung der Projektlaufzeiten und Fortschrittsgrade
-- **Budgeteinbehalt-Berechnung:** Detaillogik noch unklar, muss mit Forster geklaert werden
-- **LV-Monitoring-Export:** Jaehrlicher Ampelstatus mit Erklaerungen fuer das Ministerium (Epic 4)
-- **PNG/PDF-Export:** Ampel-Uebersicht als Bild fuer Praesentationen (Epic 4, E4-S1)
-- **Quartalsbericht-Export:** Aggregierter PDF-Bericht (Epic 4, E4-S2)
+### Python-Prototyp (prototype/)
+- 8 Charts als PNG: Ampelverteilung (Gesamt + PAG), Projekte nach PAG/Leistungsbereich/Phase, Budget Plan vs. Ist, Gantt-Zeitleiste, Fertigstellungsgrad
+- PPTX-Quartalsbericht (Template-basiert, Charts eingebettet)
+- Dashboard-Excel im Portfolio_Daten-Format (48 Spalten, Tabelle1, Conditional Formatting)
+- LV-Monitoring-Excel (Ampelstatus + Erlaeuterung + Zielwerte)
 
 ## Verwandte Dokumente
 
-- [datenmodell.md](datenmodell.md) — PSB-Feldstruktur und Datentypen
+- [data.md](data.md) — PSB-Feldstruktur, Dashboard-Schema, SAP-Format
+- [berechnungslogik.md](berechnungslogik.md) — Formeln, Ampellogik, Aggregationen
+- [parameter.md](parameter.md) — Dropdown-Werte, Codelisten, Normalisierungsregeln
 - [projektkontext.md](projektkontext.md) — Critical Expert in the Loop, Promptotyping-Methodik
 - [rechtlicher-rahmen.md](rechtlicher-rahmen.md) — LV-Kapitelstruktur und Monitoring-Zyklen

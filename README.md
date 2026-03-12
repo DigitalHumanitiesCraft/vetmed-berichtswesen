@@ -4,61 +4,70 @@ Promptotype fuer das LV-Vorhaben-Berichtswesen der VetMedUni Wien (Use Case 2 im
 
 ## Was ist das?
 
-Das Repository demonstriert, wie der manuelle Prozess der Projektstatusberichts-Konsolidierung automatisiert werden kann. Es arbeitet mit synthetischen Testdaten und dient als Lehrbeispiel fuer [Promptotyping](https://github.com/DigitalHumanitiesCraft/promptotyping-evaluation-framework) auf ein Datenintegrationsproblem.
+Das Repository automatisiert den manuellen Prozess der Projektportfolio-Konsolidierung: ca. 118 Projektstatusberichte (PSB) werden quartalsweise in ein Master-Dashboard zusammengefuehrt und fuer das Rektorat und das BMBWF aufbereitet. Es arbeitet mit fiktiven Beispieldaten und dient als Lehrbeispiel fuer [Promptotyping](https://github.com/DigitalHumanitiesCraft/promptotyping-evaluation-framework).
+
+| Aspekt | Details |
+|---|---|
+| Fachverantwortlich | Sabrina Laboureix, Referentin PPM |
+| Organisation | Stabsstelle Universitaere Entwicklung und Steuerung (SUES) |
+| Portfolioumfang | ca. 118 Vorhaben |
+| LV-Periode | 2025–2027 |
 
 ## Workflow
 
 ```
-PSB-Vorlagen (Excel)  →  Konsolidierung (Python)  →  Dashboard  →  Export
-     data/sample/          scripts/consolidate.py      (geplant)    (geplant)
+quelldaten/psb/*.xlsx ──┐
+quelldaten/finanzen/    ├─▶ 01_konsolidierung.py ─▶ output/review/konsolidiert.xlsx
+quelldaten/dashboard/  ─┘         │                   (manuelle Korrektur)
+                                  ▼
+                         02_visualisierung.py ──▶ output/charts/ (8 PNG)
+                                  │
+                                  ▼
+                         03_bericht.py ──▶ output/reports/ (PPTX, Excel, LV-Monitoring)
 ```
 
 ## Schnellstart
 
 ```bash
-# Synthetische Testdaten generieren
-python scripts/generate_sample_data.py
+# Prototyp ausfuehren
+cd prototype
+pip install -r requirements.txt
+python 01_konsolidierung.py   # → output/review/konsolidiert.xlsx
+python 02_visualisierung.py   # → output/charts/*.png
+python 03_bericht.py          # → output/reports/ (PPTX, Excel)
 
-# PSBs konsolidieren
-python scripts/consolidate.py
-
-# Ergebnis pruefen
-cat data/consolidated/quality_report.md
+# Dashboard starten
+cd ..
+python start_dashboard.py     # → http://localhost:8080
 ```
 
-Voraussetzung: Python 3.11+ und openpyxl (`pip install openpyxl`).
+Voraussetzung: Python 3.11+
+
+## Beispielprojekte (fiktiv)
+
+| LV-Nr. | Bezeichnung | PAG | Ampel | Phase |
+|---|---|---|---|---|
+| A1.1.1.1 | Zentrale Beschaffung Labormaterialien | VRFIN | In Ordnung | In Arbeit (33%) |
+| C1.2.2 | Digitale Lehr- und Pruefungsorganisation | VRLK | In Ordnung | Planung |
+| C7.7.7.8 | Einfuehrung Erweiterungsstudium | VRLK | Vorsicht | Nicht gestartet |
+| D3.3.3 | Neubau Elefantenhaus | Rektor | Krise | Planung (10%) |
 
 ## Repository-Struktur
 
 ```
-data/
-  templates/        Leere PSB-Vorlage
-  sample/           5 synthetische Projektstatusberichte
-  consolidated/     Konsolidierte Ausgabe (JSON, CSV, Quality Report)
-scripts/
-  generate_sample_data.py   Testdaten erzeugen
-  consolidate.py            Konsolidierungsscript
-knowledge/
-  projektkontext.md         Gesamtkontext, Methodik, Anforderungen, Workflow
-  rechtlicher-rahmen.md     UG 2002, LV-Kapitelstruktur, Monitoring-Zyklen
-  datenmodell.md            PSB-Struktur und Felddefinitionen
-  validierung.md            Berechnungsregeln, Validierungsstrategie, Quality Report
-  journal.md                Arbeitstagebuch (Entscheidungen, Aenderungen pro Session)
-  anforderungen.md          Epics, User Stories, Rollen, Roadmap
-docs/                       GitHub Pages-Publikation (geplant)
+quelldaten/            Originaldateien (fiktive Beispieldaten)
+  psb/                 4 Beispiel-Projektstatusberichte (Excel)
+  dashboard/           Konsolidiertes Master-Dashboard (11 Sheets)
+  finanzen/            SAP-Auszug mit Plan-/Ist-Budgetdaten
+  berichte/            Portfoliobericht Q4/2025 (PowerPoint)
+  projektauftraege/    4 Beispiel-Projektauftraege (Word/PDF)
+  vorlagen/            Leere Templates (PSB + Projektauftrag)
+prototype/             Python-Automatisierung (3 Skripte + config)
+knowledge/             Synthetisiertes Domaenenwissen
+docs/                  Interaktives HTML/JS-Dashboard
 ```
 
-## Synthetische Testdaten
-
-Die 5 PSBs bilden realistische Szenarien ab:
-
-| ID | Projekt | Ampel | Besonderheit |
-|----|---------|-------|-------------|
-| LV-2024-001 | Digitalisierung Labormanagement | gruen | Planmaessiger Verlauf |
-| LV-2024-002 | Curriculumreform | gelb | Verzoegerung, Zielwert knapp verfehlt |
-| LV-2023-005 | Forschungsinfrastruktur Biobank | gruen | Berichtszeitraum "Q1" statt "Q1/2025" |
-| LV-2024-003 | IT-Sicherheitskonzept | rot | Fehlender Istwert, kein Projektauftrag |
-| LV-2024-004 | Nachhaltigkeitsstrategie | gruen | Inkonsistente Ampel (gruen trotz Verzoegerung) |
+**Fuer das synthetisierte Wissen** → [knowledge/index.md](knowledge/index.md)
 
 ## Kontext
 
@@ -66,4 +75,4 @@ Teil des VetMedAI-Projekts (KI-Kompetenzaufbau an der VetMedUni Wien, 01/2026–
 
 ## Hinweis
 
-Internes Repository der VetMedUni Wien. Enthaelt ausschliesslich synthetische Testdaten.
+Internes Repository der VetMedUni Wien. Enthaelt ausschliesslich fiktive Beispieldaten.
