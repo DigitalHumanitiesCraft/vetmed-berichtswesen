@@ -76,3 +76,9 @@ Teil des VetMedAI-Projekts (KI-Kompetenzaufbau an der VetMedUni Wien, 01/2026–
 ## Hinweis
 
 Internes Repository der VetMedUni Wien. Enthaelt ausschliesslich fiktive Beispieldaten.
+
+## Licence
+
+- Code: MIT (see [LICENSE](LICENSE)).
+- Documentation and knowledge documents (`knowledge/`, `docs/` prose): CC BY 4.0.
+- The repository ships only fictitious sample data. Any third-party research data is excluded from these licences and the rights remain with their holders.
