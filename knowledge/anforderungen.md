@@ -71,7 +71,7 @@ TDWI Human-in-the-Loop-Forschung [5]: Das Propose-Validate-Pattern (System melde
 
 Implementiert als HTML/CSS/JS-Dashboard (docs/). Datenquelle: consolidated.json aus Stufe 2. Chart.js fuer Visualisierungen (Budget-Balken, Soll/Ist-Vergleich, Ampel-/Kapitel-/Massnahmen-Verteilungen). Start via `python start_dashboard.py` (lokaler HTTP-Server auf Port 8080).
 
-**Abhaengigkeit:** Klaerung Kapitel-Dimension (A-D vs. Lehre/Forschung/Infrastruktur) am 04.03. beeinflusst Filterdimensionen (E3-S2). Siehe [projektkontext.md](projektkontext.md).
+**Abhaengigkeit aufgeloest:** Die Kapitel-Dimension ist als A/B/C/D mit 18 Unterkategorien durch die Quelldaten bestaetigt, die Filterdimensionen von E3-S2 stehen damit fest. Werteliste in [parameter.md](parameter.md).
 
 ---
 

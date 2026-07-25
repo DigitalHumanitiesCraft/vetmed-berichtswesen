@@ -23,7 +23,7 @@
 
 Bezeichnungen variieren geringfügig je Universität. Die Struktur hat sich über LV-Perioden verändert (z.B. lagen "Gesellschaftliche Zielsetzungen" früher unter D).
 
-**Hypothese für UC2:** Die Dimension "[Kapitel](datenmodell.md)" in den Projektstatusberichten entspricht dieser Struktur. Die synthetischen Testdaten verwenden aktuell "Lehre", "Forschung" und "Infrastruktur" — möglicherweise auf A/B/C/D umzustellen, sobald die reale Zuordnung geklärt ist (siehe [offene Punkte](projektkontext.md)).
+**Bestätigt für UC2:** Die Dimension "[Kapitel](data.md)" in den Projektstatusberichten entspricht dieser Struktur. Die Quelldaten verwenden A/B/C/D mit 18 Unterkategorien; die Werteliste steht in [parameter.md](parameter.md). Die früheren synthetischen Testdaten mit "Lehre", "Forschung" und "Infrastruktur" sind damit überholt.
 
 ## Monitoring-Zyklen
 
@@ -34,7 +34,7 @@ Bezeichnungen variieren geringfügig je Universität. Die Struktur hat sich übe
 | Interner Quartalsbericht | Quartalsweise | Rektorat VetMed |
 | LV-Periode | 3 Jahre | BMFWF |
 
-**Offener Punkt (zu klären am 04.03.):** Beziehung zwischen internem Quartalsbericht und externen Begleitgesprächen. Getrennte Prozesse oder speisen die internen Berichte in die externen Gespräche ein?
+**Offener Punkt:** Beziehung zwischen internem Quartalsbericht und externen Begleitgesprächen. Getrennte Prozesse oder speisen die internen Berichte in die externen Gespräche ein?
 
 ## VetMedUni Wien LV 2025–2027
 
