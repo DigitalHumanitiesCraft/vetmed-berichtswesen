@@ -93,7 +93,7 @@ Zum Abschluss bittet Sabrina Claude Code, die bereinigte Zusammenfassung in eine
 
 ### Hintergrund
 
-Diese Phase verfolgt mehrere Zwecke gleichzeitig. Sabrina erlebt, dass Claude Code ihr Fachwissen aufnehmen und strukturieren kann. Sie uebt, Domaenenwissen explizit zu formulieren — eine Faehigkeit, die fuer die Arbeit mit KI-Werkzeugen zentral ist. Und es entsteht ein Wissensdokument, das dem Promptotyping-Prinzip entspricht: Dokumente als Source of Truth, Code als Disposable Artifact.
+Diese Phase verfolgt mehrere Zwecke gleichzeitig. Sabrina erlebt, dass Claude Code ihr Fachwissen aufnehmen und strukturieren kann. Sie uebt, Domaenenwissen explizit zu formulieren — eine Faehigkeit, die fuer die Arbeit mit KI-Werkzeugen zentral ist. Und es entsteht ein Wissensdokument, das dem Promptotyping-Prinzip entspricht. Die Dokumente sind die Source of Truth, der Code ist ihre gepflegte, getestete Umsetzung.
 
 ### Referenzwissen fuer den Moderator
 

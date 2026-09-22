@@ -23,9 +23,9 @@ Promptotyping ist eine iterative Context-Engineering-Arbeitstechnik in vier Phas
 1. **Preparation:** Domaenenwissen, Datenstrukturen und Anforderungen zusammentragen
 2. **Exploration:** Moeglichkeitsraeume sondieren, Entscheidungen identifizieren
 3. **Destillation:** Wissensdokumente verdichten, die als Spezifikation dienen
-4. **Implementation:** Iterative Entwicklung, Code als disposable artifact
+4. **Implementation:** Iterative Entwicklung, Code als gepflegte, getestete Umsetzung
 
-Kernprinzip: **Documents as Source of Truth, Code as Disposable Artifact.** Die Dokumente in `knowledge/` sind die stabilen Artefakte. Der Code in `prototype/` kann jederzeit neu generiert werden, solange die Wissensdokumente korrekt und vollstaendig sind.
+Kernprinzip: Die Dokumente in `knowledge/` sind die Source of Truth, der Code in `prototype/` ist ihre gepflegte, getestete Umsetzung. Er laesst sich aus korrekten und vollstaendigen Wissensdokumenten neu generieren, wird aber wie jedes andere Artefakt des Projekts gepflegt und mit `prototype/check.py` geprueft.
 
 ## Critical Expert in the Loop
 

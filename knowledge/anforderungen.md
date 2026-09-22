@@ -99,7 +99,7 @@ Implementiert in `prototype/`: 8 PNG-Charts (matplotlib), PPTX-Quartalsbericht (
 | E5-S2 | Als PL will ich ein Session-Journal, damit Entscheidungen und offene Punkte zwischen Sessions nicht verloren gehen. | Muss | Done |
 | E5-S3 | Als PL will ich Cross-Referenzen zwischen Dokumenten (Single Source of Truth), damit keine widersprüchlichen Definitionen entstehen. | Muss | Done |
 
-Steiner/Pollin [3, 4]: "Documents as Source of Truth, Code as Disposable Artifact." Die ECKM-Studie [1] zeigt: Der Wissensbilanz-Prozess scheiterte an fehlender Dokumentation der Kompilierungsregeln — genau das Problem, das knowledge/ loest.
+Steiner/Pollin [3, 4] fuehren die Wissensdokumente als Source of Truth, aus der der Code entsteht. Dieses Projekt behandelt den Code dabei als gepflegtes, getestetes Artefakt, das aus den Dokumenten neu erzeugt werden kann und trotzdem weitergefuehrt und geprueft wird. Die ECKM-Studie [1] zeigt: Der Wissensbilanz-Prozess scheiterte an fehlender Dokumentation der Kompilierungsregeln — genau das Problem, das knowledge/ loest.
 
 ---
 
@@ -109,7 +109,7 @@ Steiner/Pollin [3, 4]: "Documents as Source of Truth, Code as Disposable Artifac
 |--------|-------------|----------|
 | ECKM [1] | Wissensbilanz-Verarbeitung des BMBWF war manuell; Loesung: durchsuchbare Datenbank mit Export | Strukturell identisches Problem, validiert Ansatz |
 | CHE [2] | Einheitliche Templates reduzieren Heterogenitaet in Zielvereinbarungs-Berichten | Validiert PSB-Vorlage als Ausgangspunkt |
-| Steiner/Pollin [3, 4] | Promptotyping: Dokumente als Source of Truth, Code als Disposable Artifact | Methodische Grundlage dieses Projekts |
+| Steiner/Pollin [3, 4] | Promptotyping: Dokumente als Source of Truth, Code als gepflegte, getestete Umsetzung | Methodische Grundlage dieses Projekts |
 | TDWI [5] | Propose-Validate-Pattern fuer KI-gestuetzte Qualitaetssicherung | Validiert quality_report.md-Ansatz |
 | TDWI [6] | 8 kanonische Datenqualitaetsdimensionen (Completeness, Consistency, Validity, ...) | Testdaten decken die 3 haeufigsten ab |
 | Kanaries [7] | Streamlit schneller fuer Prototyping, Dash fuer Produktion | Empfehlung fuer Dashboard-Stufe |
