@@ -8,11 +8,11 @@ Use Case 1 ([vetmed-wissensbilanz](https://github.com/DigitalHumanitiesCraft/vet
 
 ## Kernproblem
 
-Datenintegration, nicht Visualisierung. Der bestehende manuelle Prozess funktioniert, weil die Fachverantwortliche (Sabrina Laboureix, Referentin PPM, Stabsstelle SUES) die Regeln kennt. Formeln, Zuordnungsregeln und Sonderfaelle in der konsolidierten Excel sind nirgends dokumentiert, funktionieren aber seit Jahren. Dieses Repository macht dieses implizite Domaenenwissen explizit.
+Datenintegration, nicht Visualisierung. Der bestehende manuelle Prozess funktioniert, weil die Fachverantwortliche (Referentin PPM, Stabsstelle SUES) die Regeln kennt. Formeln, Zuordnungsregeln und Sonderfaelle in der konsolidierten Excel sind nirgends dokumentiert, funktionieren aber seit Jahren. Dieses Repository macht dieses implizite Domaenenwissen explizit.
 
 ## Beteiligte
 
-**Sabrina Laboureix** — Fachverantwortliche, Referentin PPM (Stabsstelle Universitaere Entwicklung und Steuerung, SUES). Kennt den bestehenden Prozess, die Datenstrukturen und die Berechnungslogik. Nicht-technischer Hintergrund. Soll am Ende des Projekts den Konsolidierungsprozess verstehen, Erweiterungen einschaetzen koennen und die Methodik auf andere Prozesse uebertragen koennen.
+**Fachverantwortliche der VetMedUni** — Referentin PPM (Stabsstelle Universitaere Entwicklung und Steuerung, SUES). Kennt den bestehenden Prozess, die Datenstrukturen und die Berechnungslogik. Nicht-technischer Hintergrund. Soll am Ende des Projekts den Konsolidierungsprozess verstehen, Erweiterungen einschaetzen koennen und die Methodik auf andere Prozesse uebertragen koennen.
 
 **Christopher Pollin** — Projektleiter, Digital Humanities Craft. Verantwortet die Promptotyping-Methodik und technische Umsetzung.
 
@@ -29,7 +29,7 @@ Kernprinzip: Die Dokumente in `knowledge/` sind die Source of Truth, der Code in
 
 ## Critical Expert in the Loop
 
-Laboureix ist die Critical Expert. Ihre Rolle:
+Die Fachverantwortliche ist die Critical Expert. Ihre Rolle:
 - **Domaenenwissen liefern:** Berechnungslogik, Zuordnungsregeln, Sonderfaelle
 - **Ergebnisse validieren:** Konsolidierte Daten auf inhaltliche Korrektheit pruefen
 - **Edge Cases identifizieren:** Faelle aus der Praxis benennen, die das Script abfangen muss

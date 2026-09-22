@@ -8,7 +8,7 @@ Das Repository automatisiert den manuellen Prozess der Projektportfolio-Konsolid
 
 | Aspekt | Details |
 |---|---|
-| Fachverantwortlich | Sabrina Laboureix, Referentin PPM |
+| Fachverantwortlich | Referentin PPM |
 | Organisation | Stabsstelle Universitaere Entwicklung und Steuerung (SUES) |
 | Portfolioumfang | ca. 118 Vorhaben |
 | LV-Periode | 2025–2027 |

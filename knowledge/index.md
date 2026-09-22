@@ -5,7 +5,7 @@
 | Aspekt | Details |
 |---|---|
 | Titel | Projektportfolio LV-Vorhaben |
-| Fachverantwortlich | Sabrina Laboureix, Referentin PPM |
+| Fachverantwortlich | Referentin PPM |
 | Organisation | Stabsstelle Universitaere Entwicklung und Steuerung (SUES) |
 | LV-Periode | 2025–2027 |
 | Portfolioumfang | ca. 118 Vorhaben |

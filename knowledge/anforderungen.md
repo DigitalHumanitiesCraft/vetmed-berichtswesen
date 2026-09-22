@@ -8,7 +8,7 @@ Forschungsgrundlage: Die Anforderungen stuetzen sich auf externe Befunde aus 202
 
 | Kuerzel | Rolle | Person | Kernbeduerfnis |
 |---------|-------|--------|----------------|
-| **FV** | Fachverantwortliche | Sabrina Laboureix | Korrekte, vollstaendige Konsolidierung mit Kontrollmoeglichkeit |
+| **FV** | Fachverantwortliche | Referentin PPM (SUES) | Korrekte, vollstaendige Konsolidierung mit Kontrollmoeglichkeit |
 | **PL** | Projektleiter VetMedAI UC2 | Christopher Pollin | Funktionsfaehiger Promptotype, uebertragbare Methodik |
 | **RK** | Rektorat | (Gremium) | Ampel-Uebersicht, rote Projekte, Budgetstatus auf einen Blick |
 | **PE** | Projekterfasser | (diverse) | Einfache, fehlertolerante Dateneingabe |

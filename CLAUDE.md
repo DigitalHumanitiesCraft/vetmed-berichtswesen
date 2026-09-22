@@ -4,7 +4,7 @@
 
 Promptotype fuer Use Case 2 des VetMedAI-Projekts (KI-Kompetenzaufbau an der VetMedUni Wien). Das Repository bildet den Workflow fuer das LV-Vorhaben-Berichtswesen ab: Projektstatusberichte (PSB) werden aus Excel-Vorlagen konsolidiert, ausgewertet und fuer das Rektorat aufbereitet.
 
-Fachverantwortliche: Sabrina Laboureix (Referentin PPM, Stabsstelle SUES). Portfolioumfang: ca. 118 Vorhaben.
+Fachverantwortliche: Referentin PPM der Stabsstelle SUES der VetMedUni. Portfolioumfang: ca. 118 Vorhaben.
 
 Das Repository arbeitet mit fiktiven Beispieldaten. Keine realen Werte, keine personenbezogenen Daten.
 

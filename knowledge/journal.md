@@ -35,12 +35,12 @@ Frage: Wie kann geprueft werden, ob die Konsolidierung korrekt funktioniert? Erg
 
 ### Kontext
 
-Die Fachverantwortliche (Sabrina Laboureix) hat die echten Quelldaten uebermittelt. Daraus wurde am 10.03.2026 ein vollstaendiger Prototyp erstellt (im Ordner "Use Case Projektportfolio_LV-Vorhaben"). Dieser wird jetzt ins Git-Repository ueberfuehrt und mit dem bestehenden Wissen zusammengefuehrt.
+Die Fachverantwortliche hat die echten Quelldaten uebermittelt. Daraus wurde am 10.03.2026 ein vollstaendiger Prototyp erstellt (im Ordner "Use Case Projektportfolio_LV-Vorhaben"). Dieser wird jetzt ins Git-Repository ueberfuehrt und mit dem bestehenden Wissen zusammengefuehrt.
 
 ### Entscheidungen
 
 1. **Downloads-Prototyp ist fuehrend**: Der am 10.03. mit echten Quelldaten erstellte Prototyp ersetzt die vereinfachten synthetischen Daten vom 14.02.
-2. **Fachverantwortliche**: Sabrina Laboureix (Referentin PPM, SUES) statt Michael Forster
+2. **Fachverantwortliche**: Referentin PPM der Stabsstelle SUES statt des bis dahin als Fachverantwortlicher gefuehrten Ansprechpartners
 3. **Knowledge-Zusammenfuehrung**: Neue Dateien aus Downloads (data.md, berechnungslogik.md, parameter.md, use-case.md, index.md) + wertvolle Dateien aus Git (rechtlicher-rahmen.md, anforderungen.md, validierung.md)
 4. **Alte vereinfachte Struktur entfernt**: data/sample/, data/templates/, scripts/consolidate.py, datenmodell.md
 5. **Dashboard ans neue Datenmodell angepasst**: HTML/JS-Dashboard liest jetzt konsolidiert.xlsx via JSON-Konvertierung
@@ -58,8 +58,8 @@ Die Fachverantwortliche (Sabrina Laboureix) hat die echten Quelldaten uebermitte
 | knowledge/data.md | Neu: Ersetzt datenmodell.md — PSB (43 Zeilen, 59 Merged Cells), Dashboard (48 Spalten), SAP, PPTX |
 | knowledge/berechnungslogik.md | Neu: NETWORKDAYS, Ampellogik, Aggregationen, Zielwert-Tracking |
 | knowledge/parameter.md | Neu: Alle Dropdown-Werte, Normalisierungstabellen, 18 Kapitelzuordnungen |
-| knowledge/projektkontext.md | Aktualisiert: Neue Referenzen, Laboureix statt Forster, offene Punkte geklaert |
-| knowledge/anforderungen.md | Aktualisiert: Epic 4 auf Done, Laboureix, Roadmap aktualisiert |
+| knowledge/projektkontext.md | Aktualisiert: Neue Referenzen, neue Fachverantwortliche, offene Punkte geklaert |
+| knowledge/anforderungen.md | Aktualisiert: Epic 4 auf Done, Fachverantwortliche, Roadmap aktualisiert |
 | knowledge/validierung.md | Aktualisiert: Referenzen auf data.md, implementierte Features |
 | knowledge/journal.md | Zusammengefuehrt: Downloads-Journal + Git-Journal |
 | docs/ | Dashboard ans neue Datenmodell angepasst |
