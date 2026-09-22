@@ -99,7 +99,7 @@ Implementiert in `prototype/`: 8 PNG-Charts (matplotlib), PPTX-Quartalsbericht (
 | E5-S2 | Als PL will ich ein Session-Journal, damit Entscheidungen und offene Punkte zwischen Sessions nicht verloren gehen. | Muss | Done |
 | E5-S3 | Als PL will ich Cross-Referenzen zwischen Dokumenten (Single Source of Truth), damit keine widersprüchlichen Definitionen entstehen. | Muss | Done |
 
-Steiner/Pollin [3, 4] fuehren die Wissensdokumente als Source of Truth, aus der der Code entsteht. Dieses Projekt behandelt den Code dabei als gepflegtes, getestetes Artefakt, das aus den Dokumenten neu erzeugt werden kann und trotzdem weitergefuehrt und geprueft wird. Die ECKM-Studie [1] zeigt: Der Wissensbilanz-Prozess scheiterte an fehlender Dokumentation der Kompilierungsregeln — genau das Problem, das knowledge/ loest.
+Steiner/Pollin [4] fuehren die Wissensdokumente als Source of Truth, aus der der Code entsteht. Dieses Projekt behandelt den Code dabei als gepflegtes, getestetes Artefakt, das aus den Dokumenten neu erzeugt werden kann und trotzdem weitergefuehrt und geprueft wird. Die ECKM-Studie [1] zeigt: Der Wissensbilanz-Prozess scheiterte an fehlender Dokumentation der Kompilierungsregeln — genau das Problem, das knowledge/ loest.
 
 ---
 
@@ -109,7 +109,7 @@ Steiner/Pollin [3, 4] fuehren die Wissensdokumente als Source of Truth, aus der 
 |--------|-------------|----------|
 | ECKM [1] | Wissensbilanz-Verarbeitung des BMBWF war manuell; Loesung: durchsuchbare Datenbank mit Export | Strukturell identisches Problem, validiert Ansatz |
 | CHE [2] | Einheitliche Templates reduzieren Heterogenitaet in Zielvereinbarungs-Berichten | Validiert PSB-Vorlage als Ausgangspunkt |
-| Steiner/Pollin [3, 4] | Promptotyping: Dokumente als Source of Truth, Code als gepflegte, getestete Umsetzung | Methodische Grundlage dieses Projekts |
+| Steiner/Pollin [4] | Promptotyping: Dokumente als Source of Truth, Code als gepflegte, getestete Umsetzung | Methodische Grundlage dieses Projekts |
 | TDWI [5] | Propose-Validate-Pattern fuer KI-gestuetzte Qualitaetssicherung | Validiert quality_report.md-Ansatz |
 | TDWI [6] | 8 kanonische Datenqualitaetsdimensionen (Completeness, Consistency, Validity, ...) | Testdaten decken die 3 haeufigsten ab |
 | Kanaries [7] | Streamlit schneller fuer Prototyping, Dash fuer Produktion | Empfehlung fuer Dashboard-Stufe |
@@ -120,7 +120,7 @@ Steiner/Pollin [3, 4] fuehren die Wissensdokumente als Source of Truth, aus der 
 
 1. ECKM: Digitizing Austrian Universities' Intellectual Capital Reports. European Conference on Knowledge Management. https://papers.academic-conferences.org/index.php/eckm/article/view/383
 2. CHE: Standardisierung der Berichtspflichten im Rahmen der Zielvereinbarungen. https://www.che.de/projekt/standardisierung-der-berichtspflichten-der-hochschulen-im-rahmen-der-zielvereinbarungen/
-3. Steiner/Pollin: Prototyping with Prompts. CHI 2025 / ACM. https://dl.acm.org/doi/10.1145/3706598.3713166
+3. Subramonyam/Thakkar/Ku/Dieber/Sinha: Prototyping with Prompts: Emerging Approaches and Challenges in Generative AI Design for Collaborative Software Teams. Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems (CHI '25), ACM, 2025. https://doi.org/10.1145/3706598.3713166
 4. Steiner/Pollin: Promptotyping. Zenodo, November 2024. https://zenodo.org/records/14160876
 5. TDWI: Role of Human-in-the-Loop in AI Data Management, 2025. https://tdwi.org/articles/2025/09/03/adv-all-role-of-human-in-the-loop-in-ai-data-management.aspx
 6. TDWI: 2024 State of Data Quality Report. https://tdwi.org/research/2024/05/diq-all-2024-state-of-data-quality-report.aspx
